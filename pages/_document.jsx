@@ -1,11 +1,12 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
     return {
       ...initialProps,
-      styles: <>{initialProps.styles}</>
+      styles: <>{initialProps.styles}</>,
     };
   }
 
@@ -13,7 +14,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head></Head>
-        <body>
+        <body className="bg-body">
+          <div id="page-transition"></div>
           <Main />
           <NextScript />
         </body>

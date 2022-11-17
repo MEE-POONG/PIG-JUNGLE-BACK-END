@@ -1,28 +1,25 @@
 import Head from 'next/head';
-import IndexLayout from "components/layouts/IndexLayout";
-import { useRouter } from 'next/router';
-import ImageSider from 'container/home/ImageSlider';
-import Product_ShowIndex from 'container/Product/ProductShowIndex';
-import ProductShowTest from 'container/Product/ProductList';
-
+import IndexPage from "components/layouts/IndexPage";
+import ResultNumber from 'container/Dashboard/ResultNumber';
+import PeakGraph from 'container/Dashboard/PeakGraph';
+import RecentSalse from 'container/Dashboard/RecentSalse';
+import NewListing from 'container/Dashboard/NewListing';
 export default function HomePage() {
-  const router = useRouter();
   return (
-    <>
+    < >
       <Head>
-        <title>PigJungle</title>
+        <title>HOME | dxx=</title>
         <meta
           name="description"
-          content="|| Home"
+          content="I2AROBOT 2"
         />
-        <link rel="icon" href="/images/logo.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div id='home-page' name="home-page" className='home-page'>
-        <ImageSider />
-        <Product_ShowIndex />
-        <ProductShowTest/>
-      </div>
-    </>
+      <ResultNumber />
+      <PeakGraph />
+      <RecentSalse />
+      <NewListing />
+    </ >
   );
 }
-HomePage.layout = IndexLayout;
+HomePage.layout = IndexPage;

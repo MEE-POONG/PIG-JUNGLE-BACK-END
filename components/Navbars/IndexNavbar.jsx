@@ -1,81 +1,115 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-
 // components
-import { Container, Navbar, Nav, NavDropdown, Offcanvas, Form, FormControl, Button, Image, Row, Col, NavbarBrand } from 'react-bootstrap';
+import { NavDropdown, Image, Navbar, Button } from 'react-bootstrap';
+import { FaBars, FaBell, FaRegEnvelope, FaUserEdit } from "react-icons/fa";
+import { ButtonSlideNav } from "../Sidebar/TheSlideNav";
 
 
 export default function IndexNavbar() {
-  const [navSize, setNavSize] = useState("6rem")
-  const [navColor, setNavColor] = useState("#e936f4")
-  const [navLogo, setNavLogo] = useState("160px")
-
-  const listenScrollEvent = () => {
-    window.scrollY > 10 ? setNavColor("#e936f4") : setNavColor("#e936f4")
-    window.scrollY > 10 ? setNavSize("5rem") : setNavSize("6rem")
-    window.scrollY > 10 ? setNavLogo('90px') : setNavLogo('160px')
-  };
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent)
-    return () => {
-      window.removeEventListener("scroll", listenScrollEvent)
-    }
-  }, [])
 
   return (
     <>
-      <section className="topNavbar d-flex">
-        <div className="topNavbar-red flex-fill">
-        </div>
-        <div className="topNavbar-yellow flex-fill">
-        </div>
-        <div className="topNavbar-green flex-fill">
-        </div>
-      </section>
-      <Navbar className={navLogo == "160px" ? "header-area " : "header-area-scroll" + " header-sticky"} sticky="top" expand="lg">
-        <Container>
-          <Navbar.Brand href="/" className="d-xl-none d-lg-none">
-            <Image src={'images/logo.png'} alt="logo-nav" width={'100px'}/>
-          </Navbar.Brand>
+      <Navbar className="navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
+        <Navbar.Brand href="/">Bootstrap</Navbar.Brand>
+        <ButtonSlideNav />
+        <form className="d-none d-md-flex ms-4">
+          <input className="form-control bg-dark border-0" type="search" placeholder="Search" />
+        </form>
 
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
-            <Nav className="d-flex align-items-center w-100 text-center">
-              <div className="d-lg-flex w-40 justify-content-center">
-                <Nav.Link href="/" className="font-menu font-bold mx-2">
-                  <div className="active">หน้าแรก</div>
-                  <div className="n-active">หน้าแรก</div>
-                </Nav.Link>
-                <Nav.Link href="/product" className="font-menu font-bold mx-2">
-                  <div className="active">ร้านค้า</div>
-                  <div className="n-active">ร้านค้า</div>
-                </Nav.Link>
-                <Nav.Link href="/about" className="font-menu font-bold mx-2">
-                  <div className="active">เกี่ยวกับเรา</div>
-                  <div className="n-active">เกี่ยวกับเรา</div>
-                </Nav.Link>
+        <div className="navbar-nav align-items-center ms-auto">
+          <NavDropdown
+            id="nav-dropdown-dark-example"
+            title={<>
+              <i className="me-lg-2">
+                <FaRegEnvelope />
+              </i>
+              <span className="d-none d-lg-inline-flex">Message</span>
+            </>}
+            menuVariant="dark"
+          >
+            <NavDropdown.Item href="#action/3.4">
+              <div className="d-flex align-items-center">
+                <Image className="rounded-circle" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
+                <div className="ms-2">
+                  <h6 className="fw-normal mb-0">Jhon send you a message</h6>
+                  <small>15 minutes ago</small>
+                </div>
               </div>
-              <Navbar.Brand href="/" className="logo-main d-none d-xl-block d-lg-block d-flex mx-auto w-20">
-                <Image src={'images/logo.png'} alt="logo-nav" width={navLogo} style={{ transition: "all 0.5s" }} />
-              </Navbar.Brand>
-              <div className="d-lg-flex w-40 justify-content-center">
-                <Nav.Link href="/Contact" className="font-menu font-bold mx-2">
-                  <div className="active">ติดต่อ</div>
-                  <div className="n-active">ติดต่อ</div>
-                </Nav.Link>
-                <Nav.Link href="/sign_in" className="font-menu font-bold mx-2">
-                  <div className="active">เข้าสู่ระบบ</div>
-                  <div className="n-active">เข้าสู่ระบบ</div>
-                </Nav.Link>
-                <Nav.Link href="/sign_up" className="font-menu font-bold mx-2">
-                  <div className="active">สมัครสมาชิก</div>
-                  <div className="n-active">สมัครสมาชิก</div>
-                </Nav.Link>
+            </NavDropdown.Item>
+            <hr className="dropdown-divider" />
+            <NavDropdown.Item href="#action/3.4">
+              <div className="d-flex align-items-center">
+                <Image className="rounded-circle" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
+                <div className="ms-2">
+                  <h6 className="fw-normal mb-0">Jhon send you a message</h6>
+                  <small>15 minutes ago</small>
+                </div>
               </div>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
+            </NavDropdown.Item>
+            <hr className="dropdown-divider" />
+            <NavDropdown.Item href="#action/3.4">
+              <div className="d-flex align-items-center">
+                <Image className="rounded-circle" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
+                <div className="ms-2">
+                  <h6 className="fw-normal mb-0">Jhon send you a message</h6>
+                  <small>15 minutes ago</small>
+                </div>
+              </div>
+            </NavDropdown.Item>
+            <hr className="dropdown-divider" />
+            <NavDropdown.Item href="#action/3.4" className="text-center">
+              See all notifications
+            </NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown
+            id="nav-dropdown-dark-example"
+            title={<>
+              <i className="me-lg-2">
+                <FaBell />
+              </i>
+              <span className="d-none d-lg-inline-flex">Notificatin</span>
+            </>}
+            menuVariant="dark"
+          >
+            <NavDropdown.Item href="#action/3.4">
+              <h6 className="fw-normal mb-0">Profile updated</h6>
+              <small>15 minutes ago</small>
+            </NavDropdown.Item>
+            <hr className="dropdown-divider" />
+            <NavDropdown.Item href="#action/3.4">
+              <h6 className="fw-normal mb-0">New user added</h6>
+              <small>15 minutes ago</small>
+            </NavDropdown.Item>
+            <hr className="dropdown-divider" />
+            <NavDropdown.Item href="#action/3.4">
+              <h6 className="fw-normal mb-0">Password changed</h6>
+              <small>15 minutes ago</small>
+            </NavDropdown.Item>
+            <hr className="dropdown-divider" />
+            <NavDropdown.Item href="#action/3.4" className="text-center">
+              See all notifications
+            </NavDropdown.Item>
+          </NavDropdown>
+          <NavDropdown
+            id="nav-dropdown-dark-example"
+            title={<>
+              <Image className="rounded-circle me-lg-2" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
+              <span className="d-none d-lg-inline-flex">มอง มอง</span>
+            </>}
+            menuVariant="dark"
+          >
+            <NavDropdown.Item href="/profile">My Profile</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.4">Log Out</NavDropdown.Item>
+          </NavDropdown>
+        </div>
       </Navbar>
+      {/* <Navbar bg="light" expand="md" className="mb-3">
+        <Container fluid>
+          <Navbar.Brand href="#">Navbar Offcanvas</Navbar.Brand>
+        </Container>
+      </Navbar> */}
     </>
+
   );
 }

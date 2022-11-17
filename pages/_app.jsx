@@ -3,11 +3,11 @@ import ReactDOM from "react-dom";
 import App from "next/app";
 import Head from "next/head";
 import Router from "next/router";
+import 'assets/scss/value-tem.scss';
+import 'assets/css/style.css';
+
 import PageChange from "../components/PageChange/PageChange.js";
-import SSRProvider from "react-bootstrap/SSRProvider";
-import "assets/scss/index.scss";
-
-
+import SSRProvider from 'react-bootstrap/SSRProvider';
 
 // import "@fortawesome/fontawesome-free/css/all.min.css";
 // import "../styles/tailwind.scss";
@@ -75,13 +75,6 @@ export default class MyApp extends App {
               content="width=device-width, initial-scale=1, shrink-to-fit=no"
             />
             <title>Notus NextJS by Creative Tim</title>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link
-              rel="preconnect"
-              href="https://fonts.gstatic.com"
-              crossOrigin="true"
-            />
-          
           </Head>
           <Layout>
             <Component {...pageProps} />
