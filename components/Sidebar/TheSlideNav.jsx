@@ -10,9 +10,11 @@ import {
   FaRegChartBar,
   FaBars,
   FaFunnelDollar,
+  FaUser,
+  FaShoppingCart,
 } from "react-icons/fa";
 import { Image, Dropdown, Button } from "react-bootstrap";
-import { AiTwotoneBank, AiFillProfile } from "react-icons/ai";
+import { BsFillBagFill } from "react-icons/bs";
 
 import Link from "next/link";
 
@@ -135,6 +137,76 @@ export default function TheSlideNav() {
                 MoneyTransfer
               </a>
             </Link>
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <FaShoppingCart/>
+                </i>
+                จัดการสินค้า
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <BsFillBagFill/>
+                </i>
+                จัดการออเดอร์
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">รายการออเดอร์</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">สถานะออเดอร์</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <FaUser/>
+                </i>
+                จัดการสมาขิก
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สมาชิก</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">ที่อยู่สมาชิก</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <FaLaptop />
+                </i>
+                จัดการเว็บไซต์
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">เกร็ดความรู้</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">เกี่ยวกับเรา</a>
+                </Link>
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">ข้อมูลติดต่อ</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">สไลด์รูป</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         </nav>
       </div>
