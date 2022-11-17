@@ -3,17 +3,18 @@ import { useState } from 'react';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
 import { Container, Image, Row, Modal, Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { HiMagnifyingGlass } from "react-icons/hi2";
+import { HiClipboardList, HiX, HiSearch } from "react-icons/hi";
+
 
 export default function OrdersListPage() {
   const router = useRouter();
-  const [createModal, setCreateModal] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false);
+//   const [createModal, setCreateModal] = useState(false);
+//   const [deleteModal, setDeleteModal] = useState(false);
 
-  const createClose = () => setCreateModal(false);
-  const createShow = () => setCreateModal(true);
-  const deleteClose = () => setDeleteModal(false);
-  const deleteShow = () => setDeleteModal(true);
+//   const createClose = () => setCreateModal(false);
+//   const createShow = () => setCreateModal(true);
+//   const deleteClose = () => setDeleteModal(false);
+//   const deleteShow = () => setDeleteModal(true);
   return (
     < >
       <Head>
@@ -27,9 +28,21 @@ export default function OrdersListPage() {
       <Container fluid className=" pt-4 px-4">
       <div className="bg-secondary text-center rounded shadow p-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
-                        <h6 className="mb-0">จัดการคำสั่งซื้อ</h6>
+                        <h5 className="mb-0">จัดการคำสั่งซื้อ</h5>
+                    </div>
+
+                    {/* Search Order List */}
+                    <div className="d-flex align-items-center justify-content-between mb-4">
+                        <h6 className="mb-0">ค้นหาสถานะการบริการ</h6>
                         <a href="">Show All</a>
                     </div>
+
+                    <form className="d-none d-md-flex ms-4">
+                        <input className="form-control bg-dark border-0" type="search" placeholder="Search" />
+                    </form>
+
+                    
+                   {/* table start */}
                     <div className="table-responsive">
                         <table className="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
@@ -49,17 +62,22 @@ export default function OrdersListPage() {
                             <tbody>
                                 <tr>
                                     <td><input className="form-check-input" type="checkbox" /></td>
-                                    <td>เลขออเดอร์</td>
-                                    <td>ชื่อลูกค้า</td>
+                                    <td>KC0001</td>
+                                    <td>long long</td>
                                     <td>0990000000</td>
                                     <td>นครราชสีมา</td>
                                     <td>100</td>
                                     <td>จ่ายแล้ว</td>
                                     <td>พนักงาน1</td>
-                                    <td>วันที่สั่ง</td>
-                                    <td> <Button variant="primary" className='ms-2 w-m-max' onClick={createShow}>
+                                    <td>01 Jan 2045</td>
+                                    <td>
+                                        <a className="btn btn-sm btn-info"><HiClipboardList/></a>
+                                        <i className="btn btn-sm btn-light"><HiSearch/></i>
+                                        <i className="btn btn-sm btn-danger"><HiX/></i>
+                                    </td>
+                                    {/* <td> <Button variant="light" className='ms-2 w-m-max' onClick={createShow}>
                                     <HiMagnifyingGlass/>
-                                    </Button></td>
+                                    </Button></td> */}
                                 </tr>
                             </tbody>
                         </table>
@@ -67,7 +85,7 @@ export default function OrdersListPage() {
                 </div>
       </Container>
 
-       <Modal show={createModal} onHide={createClose} centered className="bg-templant">
+       {/* <Modal show={createModal} onHide={createClose} centered className="bg-templant">
         <Modal.Header closeButton >
           <Modal.Title>รายละเอียดคำสั่งซื้อ</Modal.Title>
         </Modal.Header>
@@ -82,11 +100,11 @@ export default function OrdersListPage() {
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={createClose}>
+          {/* <Button variant="secondary" onClick={createClose}>
             ยกเลิก
-          </Button>
-          <Button variant="primary" onClick={createClose}>
-            สร้าง
+          </Button> 
+          <Button variant="light" onClick={createClose}>
+            ปิด
           </Button>
         </Modal.Footer>
       </Modal>
@@ -105,7 +123,7 @@ export default function OrdersListPage() {
             ยืนยัน
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal>  */}
 
 
     
