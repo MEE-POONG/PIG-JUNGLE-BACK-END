@@ -141,23 +141,6 @@ export default function TheSlideNav() {
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
-                  <FaShoppingCart/>
-                </i>
-                จัดการสินค้า
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
-                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
-                </Link>
-                <Link id="typographys" href="/typographys">
-                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
-
-            <Dropdown bsPrefix="nav-item">
-              <Dropdown.Toggle className="nav-link" variant="">
-                <i className="me-2">
                   <BsFillBagFill/>
                 </i>
                 จัดการออเดอร์
@@ -172,6 +155,22 @@ export default function TheSlideNav() {
               </Dropdown.Menu>
             </Dropdown>
 
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <FaShoppingCart/>
+                </i>
+                จัดการสินค้า
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
@@ -197,16 +196,16 @@ export default function TheSlideNav() {
                 จัดการเว็บไซต์
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
+                <Link id="knowledge" href="knowledge">
                   <a className="dropdown-item">เกร็ดความรู้</a>
                 </Link>
-                <Link id="typographys" href="/typographys">
+                <Link id="about" href="/about">
                   <a className="dropdown-item">เกี่ยวกับเรา</a>
                 </Link>
-                <Link id="buttons" href="/buttons">
+                <Link id="contact" href="/contact">
                   <a className="dropdown-item">ข้อมูลติดต่อ</a>
                 </Link>
-                <Link id="typographys" href="/typographys">
+                <Link id="sliderpicture" href="/sliderpicture">
                   <a className="dropdown-item">สไลด์รูป</a>
                 </Link>
               </Dropdown.Menu>
