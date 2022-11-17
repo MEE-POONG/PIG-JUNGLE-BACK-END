@@ -140,22 +140,6 @@ export default function TheSlideNav() {
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
-                  <FaShoppingCart/>
-                </i>
-                จัดการสินค้า
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
-                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
-                </Link>
-                <Link id="typographys" href="/typographys">
-                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown bsPrefix="nav-item">
-              <Dropdown.Toggle className="nav-link" variant="">
-                <i className="me-2">
                   <BsFillBagFill/>
                 </i>
                 จัดการออเดอร์
@@ -166,6 +150,22 @@ export default function TheSlideNav() {
                 </Link>
                 <Link id="typographys" href="/typographys">
                   <a className="dropdown-item">สถานะออเดอร์</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <FaShoppingCart/>
+                </i>
+                จัดการสินค้า
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="buttons" href="/buttons">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
+                </Link>
+                <Link id="typographys" href="/typographys">
+                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
