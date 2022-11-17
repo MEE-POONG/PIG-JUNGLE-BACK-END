@@ -8,7 +8,7 @@ export default function ResultNumber() {
             <Container fluid className="pt-4 px-4">
                 <div className="row g-4">
                     <div className="col-sm-6 col-xl-3">
-                        <div className="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <div className="bg-secondary rounded shadow d-flex align-items-center justify-content-between p-4">
                             <FaChartLine className="text-primary display-5" />
                             <div className="ms-3">
                                 <p className="mb-2">Today Sale</p>
@@ -17,7 +17,7 @@ export default function ResultNumber() {
                         </div>
                     </div>
                     <div className="col-sm-6 col-xl-3">
-                        <div className="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <div className="bg-secondary rounded shadow d-flex align-items-center justify-content-between p-4">
                             <FaChartBar className="text-primary display-5" />
                             <div className="ms-3">
                                 <p className="mb-2">Total Sale</p>
@@ -26,7 +26,7 @@ export default function ResultNumber() {
                         </div>
                     </div>
                     <div className="col-sm-6 col-xl-3">
-                        <div className="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <div className="bg-secondary rounded shadow d-flex align-items-center justify-content-between p-4">
                             <FaChartArea className="text-primary display-5" />
                             <div className="ms-3">
                                 <p className="mb-2">Today Revenue</p>
@@ -35,7 +35,7 @@ export default function ResultNumber() {
                         </div>
                     </div>
                     <div className="col-sm-6 col-xl-3">
-                        <div className="bg-secondary rounded d-flex align-items-center justify-content-between p-4">
+                        <div className="bg-secondary rounded shadow d-flex align-items-center justify-content-between p-4">
                             <FaChartPie className="text-primary display-5" />
                             <div className="ms-3">
                                 <p className="mb-2">Total Revenue</p>

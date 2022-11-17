@@ -8,7 +8,7 @@ export default function NewListing() {
             <Container fluid className="pt-4 px-4">
                 <div className="row g-4">
                     <div className="col-sm-12 col-md-6 col-xl-4">
-                        <div className="h-100 bg-secondary rounded p-4">
+                        <div className="h-100 bg-secondary rounded shadow p-4">
                             <div className="d-flex align-items-center justify-content-between mb-2">
                                 <h6 className="mb-0">Messages</h6>
                                 <a href="">Show All</a>
@@ -56,7 +56,7 @@ export default function NewListing() {
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-xl-4">
-                        <div className="h-100 bg-secondary rounded p-4">
+                        <div className="h-100 bg-secondary rounded shadow p-4">
                             <div className="d-flex align-items-center justify-content-between mb-4">
                                 <h6 className="mb-0">Calender</h6>
                                 <a href="">Show All</a>
@@ -65,7 +65,7 @@ export default function NewListing() {
                         </div>
                     </div>
                     <div className="col-sm-12 col-md-6 col-xl-4">
-                        <div className="h-100 bg-secondary rounded p-4">
+                        <div className="h-100 bg-secondary rounded shadow p-4">
                             <div className="d-flex align-items-center justify-content-between mb-4">
                                 <h6 className="mb-0">To Do List</h6>
                                 <a href="">Show All</a>

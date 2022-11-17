@@ -8,7 +8,7 @@ export default function PeakGraph() {
             <Container fluid className="pt-4 px-4">
                 <div className="row g-4">
                     <div className="col-sm-12 col-xl-6">
-                        <div className="bg-secondary text-center rounded p-4">
+                        <div className="bg-secondary shadow text-center rounded p-4">
                             <div className="d-flex align-items-center justify-content-between mb-4">
                                 <h6 className="mb-0">Worldwide Sales</h6>
                                 <a href="">Show All</a>
@@ -17,7 +17,7 @@ export default function PeakGraph() {
                         </div>
                     </div>
                     <div className="col-sm-12 col-xl-6">
-                        <div className="bg-secondary text-center rounded p-4">
+                        <div className="bg-secondary shadow text-center rounded p-4">
                             <div className="d-flex align-items-center justify-content-between mb-4">
                                 <h6 className="mb-0">Salse & Revenue</h6>
                                 <a href="">Show All</a>
