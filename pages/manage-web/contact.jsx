@@ -64,7 +64,7 @@ export default function ContactPage() {
                                 tabindex="0"
                                 style={{ filter: " invert(2%) contrast(83%)", border: "1" }}></iframe>
 
-                            <div className="mb-3"></div>
+                            <div className="mb-4"></div>
                             <label for="Inputmap" className="form-label">ลิงค์แผนที่ตั้ง</label>
                             <input type="url" className="form-control" style={{ width: "500px" }} id="#" />
                             <div className="mb-3"></div>
