@@ -137,6 +137,24 @@ export default function TheSlideNav() {
                 MoneyTransfer
               </a>
             </Link>
+
+            <Dropdown bsPrefix="nav-item">
+              <Dropdown.Toggle className="nav-link" variant="">
+                <i className="me-2">
+                  <BsFillBagFill/>
+                </i>
+                จัดการออเดอร์
+              </Dropdown.Toggle>
+              <Dropdown.Menu className="bg-transparent border-0">
+                <Link id="orderslist" href="orders/orderslist">
+                  <a className="dropdown-item">รายการสั่งซื้อสินค้า</a>
+                </Link>
+                <Link id="orderslist" href="orders/delivery_list">
+                  <a className="dropdown-item">รายการจัดส่งสินค้า</a>
+                </Link>
+              </Dropdown.Menu>
+            </Dropdown>
+
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
@@ -156,22 +174,6 @@ export default function TheSlideNav() {
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
-                  <BsFillBagFill/>
-                </i>
-                จัดการออเดอร์
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
-                  <a className="dropdown-item">รายการออเดอร์</a>
-                </Link>
-                <Link id="typographys" href="/typographys">
-                  <a className="dropdown-item">สถานะออเดอร์</a>
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Dropdown bsPrefix="nav-item">
-              <Dropdown.Toggle className="nav-link" variant="">
-                <i className="me-2">
                   <FaUser/>
                 </i>
                 จัดการสมาขิก
@@ -185,6 +187,7 @@ export default function TheSlideNav() {
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
+
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
