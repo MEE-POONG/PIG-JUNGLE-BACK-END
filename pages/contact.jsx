@@ -2,6 +2,9 @@ import Head from 'next/head';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
 import { Container, Image, Row } from 'react-bootstrap';
+import React from "react";
+
+
 export default function ContactPage() {
     const router = useRouter();
     return (
@@ -69,6 +72,9 @@ export default function ContactPage() {
                             <input type="url" className="form-control" style={{ width: "500px" }} id="#" />
                             <div className="mb-3"></div>
                             <button type="submit" className="btn btn-success" placeholder='' >ยืนยัน</button>
+
+
+                            
                         </div>
                     </div>
                 </Row>

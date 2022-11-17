@@ -3,7 +3,7 @@ import { useState } from 'react';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
 import { Container, Table, Button, Form, OverlayTrigger, Badge,Modal } from 'react-bootstrap';
-import { FaTimes, FaEye, FaEdit, FaHandHoldingUsd, FaReply } from 'react-icons/fa';
+import {FaReply,FaPlus,FaEdit,FaTrash } from 'react-icons/fa';
 
 export default function TransferPage() {
 
@@ -33,18 +33,16 @@ export default function TransferPage() {
       <Container fluid className=" pt-4 px-4">
         <div className="bg-secondary rounded p-4">
           <div className="d-flex align-items-center justify-content-between mb-4">
-            <Button variant="primary" className='btn-square'>
-              <FaReply />
-            </Button>
             <h5 className="mb-0 w-m-max me-2">ชื่อผู้ใช้</h5>
-            <Button variant="primary" className='ms-2 w-m-max' onClick={createShow}>
-              เพิ่มสมาชิก
+            <Button variant="success" onClick={createShow}>
+              <FaPlus/>
             </Button>
           </div>
 
           <div className="d-flex align-items-center border-bottom py-2">
             <div className="table-responsive w-100">
-              <Table className="table table-striped align-middle  align-items-center ">
+              <Table className="table table-striped text-start align-middle  align-items-center table-hover ">
+                
                 <thead>
                   <tr>
                     <th >id</th>
@@ -65,8 +63,8 @@ export default function TransferPage() {
                     <td>08888888</td>
                     <td>31/12/2023 </td>
                     <td>
-                      <Button className="btn btn-sm btn-success m-2" onClick={editShow}>แก้ไข</Button>
-                      <Button className="btn btn-sm btn-danger m-2" onClick={deleteShow}>ลบสมาชิก</Button>
+                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit/></Button>
+                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash/></Button>
                     </td>
                   </tr>
                   <tr>
@@ -77,8 +75,8 @@ export default function TransferPage() {
                     <td>08888888</td>
                     <td>31/12/2023 </td>
                     <td>
-                      <Button className="btn btn-sm btn-success m-2" onClick={editShow}>แก้ไข</Button>
-                      <Button className="btn btn-sm btn-danger m-2" onClick={deleteShow}>ลบสมาชิก</Button>
+                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit/></Button>
+                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash/></Button>
                     </td>
                   </tr>
                   <tr>
@@ -89,8 +87,8 @@ export default function TransferPage() {
                     <td>08888888</td>
                     <td>31/12/2023 </td>
                     <td>
-                      <Button className="btn btn-sm btn-success m-2" onClick={editShow}>แก้ไข</Button>
-                      <Button className="btn btn-sm btn-danger m-2" onClick={deleteShow}>ลบสมาชิก</Button>
+                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit/></Button>
+                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash/></Button>
                     </td>
                   </tr>
                 </tbody>
@@ -130,7 +128,7 @@ export default function TransferPage() {
           <Button variant="secondary" onClick={createClose}>
             ยกเลิก
           </Button>
-          <Button variant="primary" onClick={createClose}>
+          <Button variant="success" onClick={createClose}>
             สร้าง
           </Button>
         </Modal.Footer>
@@ -162,7 +160,7 @@ export default function TransferPage() {
           <Button variant="secondary" onClick={editClose}>
             ยกเลิก
           </Button>
-          <Button variant="primary" onClick={editClose}>
+          <Button variant="success" onClick={editClose}>
             ยืนยัน
           </Button>
         </Modal.Footer>
@@ -179,7 +177,7 @@ export default function TransferPage() {
           <Button variant="secondary" onClick={deleteClose}>
             ยกเลิก
           </Button>
-          <Button variant="primary" onClick={deleteClose}>
+          <Button variant="success" onClick={deleteClose}>
             ยืนยัน
           </Button>
         </Modal.Footer>

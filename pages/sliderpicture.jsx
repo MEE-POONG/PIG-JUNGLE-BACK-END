@@ -17,4 +17,4 @@ export default function SliderpicturePage() {
     </ >
   );
 }
-SliderpicturePagelayout = IndexPage;
+SliderpicturePage.layout = IndexPage;
