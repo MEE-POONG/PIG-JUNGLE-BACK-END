@@ -1,8 +1,8 @@
 :root {
-    --primary: #EB1616;
-    --secondary: #191C24;
+    --primary: #349520;
+    --secondary: #ffff;
     --light: #6C7293;
-    --dark: #000000
+    --dark: #e8e8e8;
 }
 
 .back-to-top {
@@ -11,6 +11,11 @@
     right: 45px;
     bottom: 45px;
     z-index: 99
+}
+
+.table-responsive > table > thead > tr > th{
+    color: var(--primary);
+    font-weight: 1000;
 }
 
 #spinner {
@@ -83,7 +88,7 @@
 }
 
 .navbar-expand .navbar-nav .dropdown-menu {
-    background-color: #191c24 !important
+    background-color: var(--secondary);
 }
 
 .bg-templant .modal-content {

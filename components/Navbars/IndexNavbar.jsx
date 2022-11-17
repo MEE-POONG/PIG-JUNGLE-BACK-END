@@ -11,7 +11,6 @@ export default function IndexNavbar() {
   return (
     <>
       <Navbar className="navbar-expand bg-secondary navbar-dark sticky-top px-4 py-0">
-        <Navbar.Brand href="/">Bootstrap</Navbar.Brand>
         <ButtonSlideNav />
         <form className="d-none d-md-flex ms-4">
           <input className="form-control bg-dark border-0" type="search" placeholder="Search" />
