@@ -193,16 +193,16 @@ export default function TheSlideNav() {
                 จัดการเว็บไซต์
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
+                <Link id="knowledge" href="manage-web/knowledge">
                   <a className="dropdown-item">เกร็ดความรู้</a>
                 </Link>
-                <Link id="typographys" href="/typographys">
+                <Link id="about" href="manage-web/about">
                   <a className="dropdown-item">เกี่ยวกับเรา</a>
                 </Link>
-                <Link id="buttons" href="/buttons">
+                <Link id="contact" href="manage-web/contact">
                   <a className="dropdown-item">ข้อมูลติดต่อ</a>
                 </Link>
-                <Link id="typographys" href="/typographys">
+                <Link id="sliderpicture" href="manage-web/sliderpicture">
                   <a className="dropdown-item">สไลด์รูป</a>
                 </Link>
               </Dropdown.Menu>
