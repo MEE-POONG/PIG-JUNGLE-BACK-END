@@ -21,7 +21,7 @@ export default function DeliveryListPage() {
       <Container fluid className=" pt-4 px-4">
       <div className="bg-secondary text-center rounded shadow p-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
-                        <h6 className="mb-0">จัดการคำสั่งซื้อ</h6>
+                        <h6 className="mb-0">สถานะการจัดส่งสินค้า</h6>
                         <a href="">Show All</a>
                     </div>
                     <div className="table-responsive">

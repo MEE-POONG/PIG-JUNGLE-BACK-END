@@ -14,7 +14,11 @@ export default function KnowledgePage() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+
+
+      
     </ >
   );
 }
-nowledgePage.layout = IndexPage;
+KnowledgePage.layout = IndexPage;
