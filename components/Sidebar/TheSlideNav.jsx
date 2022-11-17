@@ -83,14 +83,14 @@ export default function TheSlideNav() {
             </Link>
             <Link href="/forms">
               <a className="nav-item nav-link">
-                <i className="me-2">
+                <i className="me-2 ">
                   <FaRegKeyboard />
                 </i>
                 Forms
               </a>
             </Link>
             <Link href="/tables">
-              <a className="nav-item nav-link">
+              <a className="nav-item nav-link ">
                 <i className="me-2">
                   <FaTable />
                 </i>
