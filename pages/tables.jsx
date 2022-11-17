@@ -1,10 +1,6 @@
 import Head from 'next/head';
-
 import IndexPage from "components/layouts/IndexPage";
-
-
 import { useRouter } from 'next/router';
-
 import { Container, Image, Row } from 'react-bootstrap';
 export default function WidgetPage() {
   const router = useRouter();

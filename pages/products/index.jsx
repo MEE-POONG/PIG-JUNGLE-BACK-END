@@ -85,7 +85,7 @@ export default function ProductPage() {
             {/* Create */}
             <Modal show={showModalCreate} onHide={CloseModal} centered className="bg-templant">
                 <Modal.Header closeButton >
-                    <Modal.Title>รายละเอียดสินค้า</Modal.Title>
+                    <Modal.Title>เพิ่มสินค้า</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Group controlId="formFile" className="mb-3">
