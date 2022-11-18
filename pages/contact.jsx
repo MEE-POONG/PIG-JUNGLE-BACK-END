@@ -36,12 +36,12 @@ export default function ContactPage() {
                                     </div>
                                     <div className="mb-3">
                                         <label for="Inputphone" className="form-label">ลิงค์ไลน์</label>
-                                        <input type="text" className="form-control" style={{ width: "500px" }} id="# " placeholder='@Pig jungle' />
+                                        <input type="text" className="form-control" style={{ width: "500px" }} id="# " placeholder='@Pig_jungle' />
                                     </div>
 
                                     <div className="mb-3">
                                         <label for="Inputname" className="form-label">e-mail</label>
-                                        <input type="email" className="form-control" style={{ width: "500px" }} id="#" placeholder='Pig jungle@egmail.com' />
+                                        <input type="email" className="form-control" style={{ width: "500px" }} id="#" placeholder='Pig_jungle@egmail.com' />
                                     </div>
 
                                     <div className="mb-3">
