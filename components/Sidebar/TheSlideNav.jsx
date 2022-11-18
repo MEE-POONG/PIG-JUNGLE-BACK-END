@@ -163,10 +163,10 @@ export default function TheSlideNav() {
                 จัดการสินค้า
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
+                <Link id="buttons" href="/products">
                   <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
                 </Link>
-                <Link id="typographys" href="/typographys">
+                <Link id="typographys" href="/promotions">
                   <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
                 </Link>
               </Dropdown.Menu>
