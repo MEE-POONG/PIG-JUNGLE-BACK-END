@@ -1,24 +1,26 @@
 import Head from 'next/head';
-import { useState } from 'react';
+import { useState ,useEffect } from 'react';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
-import { Container, Table, Button, Form, OverlayTrigger, Badge,Modal,Row } from 'react-bootstrap';
-import {FaReply,FaPlus,FaEdit,FaTrash } from 'react-icons/fa';
+import { Container,Image, Table, Button, Form, OverlayTrigger, Badge,Modal,Row } from 'react-bootstrap';
 
 export default function AboutPage() {
 
-  const [createModal, setCreateModal] = useState(false);
-  const [deleteModal, setDeleteModal] = useState(false);
-  const [editModal, setEditModal] = useState(false);
+// ----ing-----
+const [image, setImage] = useState([])
+const [imageURL, setImageURL] = useState([])
 
-const createClose = () => setCreateModal(false);
-const createShow = () => setCreateModal(true);
+useEffect(() => {
 
-const editClose = () => setEditModal(false);
-const editShow = () => setEditModal(true);
+if (image.length < 1 ) return
+const newImageUrl = []
+image.forEach(image1 => newImageUrl.push(URL.createObjectURL(image1)))
+setImageURL(newImageUrl)
+}, [image])
 
-const deleteClose = () => setDeleteModal(false);
-const deleteShow = () => setDeleteModal(true);
+const onImageProductChange = (e) =>{
+    setImage([...e.target.files])
+}
 
   const router = useRouter();
   return (
@@ -39,8 +41,9 @@ const deleteShow = () => setDeleteModal(true);
                             <h6 className="mb-4"> ข้อมูลร้าน </h6>
                             <form>
                                 <div className="mb-3">
-                                    <label for="Inputname" className="form-label">รูปภาพของร้าน</label>
-                                    <input type="file" className="form-control" id="#" placeholder='' />
+                                    <label for="Inputname" className="form-label">รูปภาพของร้าน</label><br/>
+                                    {imageURL.map(imageSrcProduct => <Image className="mb-2" style={{height:200}} src={imageSrcProduct} alt="product_img" fluid rounded/>)}
+                                    <input type="file" accept="image/*" onChange={onImageProductChange} className="form-control" id="#" placeholder='' />
                                     <div className="mb-3">
                                         <label for="Inputphone" className="form-label">รายละเอียดร้าน</label>
                                         <textarea  rows={3}  className="form-control"  id="# "placeholder='' />
