@@ -167,7 +167,7 @@ export default function TheSlideNav() {
                   <a className="dropdown-item">สินค้า</a>
                 </Link>
                 <Link id="typographys" href="/promotions">
-                  <a className="dropdown-item">โปรโมชั่น</a>
+                  <a className="dropdown-item">รายการเข้าร่วม</a>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
