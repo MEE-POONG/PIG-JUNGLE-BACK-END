@@ -30,7 +30,7 @@ export default function SliderpicturePage() {
       <Container fluid className=" pt-4 px-4">
         <div className="bg-secondary rounded p-4">
           <div className="d-flex align-items-center justify-content-between mb-4">
-            <h5 className="mb-0 w-m-max me-2">ชื่อผู้ใช้</h5>
+            <h5 className="mb-0 w-m-max me-2">สไลด์รูป</h5>
           </div>
 
           <div className="d-flex align-items-center border-bottom py-2">

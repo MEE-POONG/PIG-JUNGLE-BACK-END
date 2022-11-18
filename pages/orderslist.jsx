@@ -3,8 +3,8 @@ import { useState } from 'react';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
 import { Container, Image, Row, Modal, Button, Form, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { HiClipboardList, HiX, HiSearch } from "react-icons/hi";
-
+import { FaTimes, FaEye, FaEdit, FaClipboardList } from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function OrdersListPage() {
   const router = useRouter();
@@ -13,8 +13,9 @@ export default function OrdersListPage() {
 
 //   const createClose = () => setCreateModal(false);
 //   const createShow = () => setCreateModal(true);
+
 //   const deleteClose = () => setDeleteModal(false);
-//   const deleteShow = () => setDeleteModal(true);
+   const deleteShow = () => setDeleteModal(true);
   return (
     < >
       <Head>
@@ -34,7 +35,7 @@ export default function OrdersListPage() {
                     {/* Search Order List */}
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h6 className="mb-0">ค้นหาสถานะการบริการ</h6>
-                        <a href="">Show All</a>
+                        <a className="btn btn-sm btn-primary" href="">รายงาน</a>
                     </div>
 
                     <form className="d-none d-md-flex ms-4">
@@ -71,13 +72,34 @@ export default function OrdersListPage() {
                                     <td>พนักงาน1</td>
                                     <td>01 Jan 2045</td>
                                     <td>
-                                        <a className="btn btn-sm btn-info"><HiClipboardList/></a>
-                                        <i className="btn btn-sm btn-light"><HiSearch/></i>
-                                        <i className="btn btn-sm btn-danger"><HiX/></i>
+                                    <div className='manager'>
+                                        <OverlayTrigger
+                                          placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >ดูรายละเอียด</Tooltip>} >
+                                          <Link href='./moneytransfer/transfer'>
+                                            <Button className="btn btn-sm mx-1">
+                                              <FaClipboardList />
+                                            </Button>
+                                          </Link>
+                                        </OverlayTrigger>
+                                        <OverlayTrigger
+                                          placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >แก้ไขใบสั่งซื้อ</Tooltip>} >
+                                          <Link href='./moneytransfer/edit'>
+                                            <Button className="btn btn-sm mx-1">
+                                              <FaEdit />
+                                            </Button>
+                                          </Link>
+                                        </OverlayTrigger>
+                                        <OverlayTrigger
+                                          placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >ลบใบสั่งซืื้อ</Tooltip>} >
+                                          <Button className="btn btn-sm mx-1" onClick={deleteShow}>
+                                            <FaTimes />
+                                          </Button>
+                                        </OverlayTrigger>
+                                      </div>
                                     </td>
-                                    {/* <td> <Button variant="light" className='ms-2 w-m-max' onClick={createShow}>
-                                    <HiMagnifyingGlass/>
-                                    </Button></td> */}
+                                    
+
+                                    {/* onClick={createShow} */}
                                 </tr>
                             </tbody>
                         </table>
