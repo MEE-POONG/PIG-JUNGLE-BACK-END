@@ -136,12 +136,8 @@ export default function TheSlideNav() {
                 </i>
                 MoneyTransfer
               </a>
-<<<<<<< HEAD
-            </Link>
-=======
             </Link> */}
 
->>>>>>> 89cfdef97d226d00cb4bbcaf55e9507f2fb494cf
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
