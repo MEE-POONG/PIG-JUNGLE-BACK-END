@@ -1,11 +1,8 @@
 import Head from 'next/head';
-
 import IndexPage from "components/layouts/IndexPage";
-
-
 import { useRouter } from 'next/router';
+import { Container, Image, Row, Button } from 'react-bootstrap';
 
-import { Container, Image, Row } from 'react-bootstrap';
 export default function DeliveryListPage() {
   const router = useRouter();
   return (
@@ -42,7 +39,7 @@ export default function DeliveryListPage() {
                                     <td>KC0001</td>
                                     <td>long long</td>
                                     <td>TH9785JK544</td>
-                                    <td> <i className='btn btn-sm btn-danger'>ยกเลิก</i></td>
+                                    <td> <a className='btn btn-sm btn-danger'>ยกเลิก</a></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -50,7 +47,7 @@ export default function DeliveryListPage() {
                                     <td>KC0002</td>
                                     <td>long long</td>
                                     <td>TH9785JK544</td>
-                                    <td> <i className='btn btn-sm btn-primary'>จัดส่งสำเร็จ</i></td>
+                                    <td> <a className='btn btn-sm btn-primary'>จัดส่งสำเร็จ</a></td>
                                     <td></td>
                                 </tr>
                                 <tr>
@@ -58,7 +55,7 @@ export default function DeliveryListPage() {
                                     <td>KC0003</td>
                                     <td>long long</td>
                                     <td>TH9785JK544</td>
-                                    <td> <i className='btn btn-sm btn-warning'>กำลังจัดส่ง</i></td>
+                                    <td> <a className='btn btn-sm btn-warning'>กำลังจัดส่ง</a></td>
                                     <td></td>
                                 </tr>
                             </tbody>
