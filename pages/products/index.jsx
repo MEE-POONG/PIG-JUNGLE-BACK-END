@@ -128,7 +128,7 @@ export default function ProductPage() {
                         <Row>
                             <Col >
                                 {imageURLs.map(imageSrc =>
-                                    <Image className="mb-2 mx-1" style={{ height: 100 }} src={imageSrc} alt="product_img" fluid rounded />
+                                    <Image className="mb-2 mx-2" style={{ height: 100 }} src={imageSrc} alt="product_img" fluid rounded />
                                 )}
                             </Col>
                         </Row>
