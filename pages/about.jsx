@@ -47,7 +47,7 @@ export default function AboutPage() {
                                 <input type="file" accept="image/*" onChange={onImageProductChange} className="form-control" id="#" placeholder='' />
                                 <div className="mb-3">
                                     <label for="Inputphone" className="form-label">รายละเอียดร้าน</label>
-                                    <textarea rows={3} className="form-control" id="# " placeholder='' />
+                                    <Editor/>
                                 </div>
                             </div>
 
