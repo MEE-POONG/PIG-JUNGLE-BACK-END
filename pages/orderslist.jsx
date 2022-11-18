@@ -83,7 +83,7 @@ export default function OrdersListPage() {
                                         </OverlayTrigger>
                                         <OverlayTrigger
                                           placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >แก้ไขใบสั่งซื้อ</Tooltip>} >
-                                          <Link href='./moneytransfer/edit'>
+                                          <Link href='./orders/testckeditor'>
                                             <Button className="btn btn-sm mx-1">
                                               <FaEdit />
                                             </Button>
