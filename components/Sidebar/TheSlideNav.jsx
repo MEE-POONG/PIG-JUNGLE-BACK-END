@@ -137,7 +137,6 @@ export default function TheSlideNav() {
                 MoneyTransfer
               </a>
             </Link>
-
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
@@ -146,10 +145,10 @@ export default function TheSlideNav() {
                 จัดการออเดอร์
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="orderslist" href="orders/orderslist">
+                <Link id="orderslist" href="orderslist">
                   <a className="dropdown-item">รายการสั่งซื้อสินค้า</a>
                 </Link>
-                <Link id="orderslist" href="orders/delivery_list">
+                <Link id="orderslist" href="delivery_list">
                   <a className="dropdown-item">รายการจัดส่งสินค้า</a>
                 </Link>
               </Dropdown.Menu>
