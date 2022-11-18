@@ -25,35 +25,37 @@ export default function ContactPage() {
                             <form>
                                 <div className="mb-3">
                                     <label for="Inputname" className="form-label">ชื่อร้าน</label>
-                                    <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='' />
+                                    <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='Pig jungle' />
                                     <div className="mb-3">
                                         <label for="Inputphone" className="form-label">เบอร์โทรศัพท์</label>
-                                        <input type="tel" className="form-control" style={{ width: "500px" }} id="# "placeholder='' />
+                                        <input type="tel" className="form-control" style={{ width: "500px" }} id="# " placeholder='065-065-8538' />
                                     </div>
                                     <div className="mb-3">
                                         <label for="Inputname" className="form-label">ลิงค์เพจเฟสบุค</label>
-                                        <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='' />
+                                        <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='Pig jungle' />
                                     </div>
                                     <div className="mb-3">
                                         <label for="Inputphone" className="form-label">ลิงค์ไลน์</label>
-                                        <input type="text" className="form-control" style={{ width: "500px" }} id="# "placeholder='' />
+                                        <input type="text" className="form-control" style={{ width: "500px" }} id="# " placeholder='@Pig jungle' />
                                     </div>
 
                                     <div className="mb-3">
                                         <label for="Inputname" className="form-label">e-mail</label>
-                                        <input type="email" className="form-control" style={{ width: "500px" }} id="#" placeholder='@example.com' />
+                                        <input type="email" className="form-control" style={{ width: "500px" }} id="#" placeholder='Pig jungle@egmail.com' />
                                     </div>
 
                                     <div className="mb-3">
                                         <label for="Inputphone" className="form-label">ช่วงเวลาติดต่อ</label>
-                                        <input type="text" className="form-control" style={{ width: "500px" }} id="# "placeholder='' />                                 
+                                        <input type="text" className="form-control" style={{ width: "500px" }} id="# " placeholder='11.00-00.00 ' />
                                     </div>
                                 </div>
-                              
-                                <button type="submit" className="btn btn-success" style={{ magin: "50px" }} >ยืนยัน</button>
+
+                                <button type="submit" className="btn btn-success" style={{ width: "100px" }} >ยืนยัน</button>
                             </form>
                         </div>
                     </div>
+
+
                     <div className="col-sm-12 col-xl-6">
                         <div className="bg-secondary rounded h-100 p-4">
                             <h6 className="mb-4"> แผนที่ตั้ง </h6>
@@ -66,17 +68,19 @@ export default function ContactPage() {
                                 aria-hidden="false"
                                 tabindex="0"
                                 style={{ filter: " invert(2%) contrast(83%)", border: "1" }}></iframe>
-
-                            <div className="mb-4"></div>
-                            <label for="Inputmap" className="form-label">ลิงค์แผนที่ตั้ง</label>
-                            <input type="url" className="form-control" style={{ width: "500px" }} id="#" />
-                            <div className="mb-3"></div>
-                            <button type="submit" className="btn btn-success" placeholder='' >ยืนยัน</button>
-
-
+                               <div className="mb-4"></div>
+                               <label for="Inputmap" className="form-label">ลิงค์แผนที่ตั้ง</label> <br/>
+                               <label for="url">Enter an https:// URL:</label>
+                               <input type="url" name="url" id="url"
+                                placeholder="https://example.com"
+                                pattern="https://.*" size="30"
+                                required></input>
                             
+                            <div className="mb-3"></div>
+                            <button type="submit" className="btn btn-success" style={{ width: "100px" }} placeholder='' >ยืนยัน</button>
+
                         </div>
-                    </div>
+                    </div>  
                 </Row>
             </Container>
         </ >
