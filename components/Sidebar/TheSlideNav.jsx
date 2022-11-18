@@ -56,7 +56,7 @@ export default function TheSlideNav() {
               </a>
             </Link>
 
-            <Dropdown bsPrefix="nav-item">
+            {/* <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
                   <FaLaptop />
@@ -136,7 +136,7 @@ export default function TheSlideNav() {
                 </i>
                 MoneyTransfer
               </a>
-            </Link>
+            </Link> */}
 
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
@@ -164,10 +164,10 @@ export default function TheSlideNav() {
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
                 <Link id="buttons" href="/products">
-                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สินค้า</a>
+                  <a className="dropdown-item">สินค้า</a>
                 </Link>
                 <Link id="typographys" href="/promotions">
-                  <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข โปรโมชั่น</a>
+                  <a className="dropdown-item">โปรโมชั่น</a>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
