@@ -21,36 +21,30 @@ export default function KnowledgePage() {
   const deleteShow = () => setDeleteModal(true);
   return (
     < >
-    <Container fluid className=" pt-4 px-4">
-                <Row className=" g-4">
-          
-                        <div className="bg-secondary rounded p-4">
-                          
-                            <h6 className="mb-4"> เกร็ดความรู้ </h6>
-                            <form>
-                                <div className="mb-3">
-                                    <label htmlFor="Inputname" className="form-label">หัวข้อ</label>
-                                    <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='' />
+      <Container fluid className=" pt-4 px-4">
+        <Row className=" g-4">
 
-                                    <div className="mb-3">
-                                        <label htmlFor="Inputphone" className="form-label">เนื้อหา</label>
-                                        <textarea  rows={3}  className="form-control"  id="# "placeholder='' />
-                                    </div>
-                                    
-                                    
+          <div className="bg-secondary rounded p-4">
 
-                                    
+            <h6 className="mb-4"> เกร็ดความรู้ </h6>
+            <form>
+              <div className="mb-3">
+                <label htmlFor="Inputname" className="form-label">หัวข้อ</label>
+                <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='' />
 
-                                    
-                                </div>
-                              
-                                <button type="submit" className="btn btn-success" style={{ magin: "50px" }} >ยืนยัน</button>
-                            </form>
-                        </div>
-                </Row>
+                <div className="mb-3">
+                  <label htmlFor="Inputphone" className="form-label">เนื้อหา</label>
+                  <textarea rows={3} className="form-control" id="# " placeholder='' />
+                </div>
+              </div>
 
-         
-            </Container>
+              <button type="submit" className="btn btn-success" style={{ magin: "50px" }} >ยืนยัน</button>
+            </form>
+          </div>
+        </Row>
+
+
+      </Container>
 
 
 
