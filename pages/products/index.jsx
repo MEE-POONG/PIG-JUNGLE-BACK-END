@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import IndexPage from "components/layouts/IndexPage"
-import { Container, Modal, Button, Form, Image, InputGroup, DropdownButton, Dropdown } from 'react-bootstrap'
+import { Container, Modal, Button, Form, Image, InputGroup, Row, Col } from 'react-bootstrap'
 import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 
 export default function ProductPage() {
@@ -10,7 +10,7 @@ export default function ProductPage() {
     const [showModalEdit, setShowModalEdit] = useState(false);
     const ShowModalCreate = () => setShowModalCreate(true);
     const ShowModalEdit = () => setShowModalEdit(true);
-    const CloseModal = () => { setShowModalCreate(false) , setShowModalEdit(false) };
+    const CloseModal = () => { setShowModalCreate(false), setShowModalEdit(false) };
 
     // image product
     const [image, setImage] = useState([])
@@ -18,13 +18,13 @@ export default function ProductPage() {
 
     useEffect(() => {
 
-    if (image.length < 1 ) return
-    const newImageUrl = []
-    image.forEach(image1 => newImageUrl.push(URL.createObjectURL(image1)))
-    setImageURL(newImageUrl)
+        if (image.length < 1) return
+        const newImageUrl = []
+        image.forEach(image1 => newImageUrl.push(URL.createObjectURL(image1)))
+        setImageURL(newImageUrl)
     }, [image])
 
-    const onImageProductChange = (e) =>{
+    const onImageProductChange = (e) => {
         setImage([...e.target.files])
     }
 
@@ -33,14 +33,14 @@ export default function ProductPage() {
     const [imageURLs, setImageURLs] = useState([])
 
     useEffect(() => {
-        if (images.length < 1 ) return
+        if (images.length < 1) return
 
         const newImageUrls = []
         images.forEach(image => newImageUrls.push(URL.createObjectURL(image)))
         setImageURLs(newImageUrls)
     }, [images])
 
-    const onImageOtherChange = (e) =>{
+    const onImageOtherChange = (e) => {
         setImages([...e.target.files])
     }
 
@@ -51,7 +51,7 @@ export default function ProductPage() {
                     <div className="d-flex align-items-center justify-content-between mb-4">
                         <h6 className="mb-0">รายการสินค้า</h6>
                         <Button variant="success" onClick={ShowModalCreate}>
-                            <FaPlus/>
+                            <FaPlus />
                         </Button>
                     </div>
                     <div className="table-responsive">
@@ -120,13 +120,19 @@ export default function ProductPage() {
                 <Modal.Body>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label className='d-block'>รูปสินค้า</Form.Label>
-                        {imageURL.map(imageSrcProduct => <Image className="mb-2" style={{height:200}} src={imageSrcProduct} alt="product_img" fluid rounded/>)}
-                        <Form.Control type="file" accept="image/*" onChange={onImageProductChange}/>
+                        {imageURL.map(imageSrcProduct => <Image className="mb-2" style={{ height: 200 }} src={imageSrcProduct} alt="product_img" fluid rounded />)}
+                        <Form.Control type="file" accept="image/*" onChange={onImageProductChange} />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label className='d-block'>รูปสินค้า เพิ่มเติม</Form.Label>
-                        {imageURLs.map(imageSrc => <Image className="mb-2" style={{height:200}} src={imageSrc} alt="product_img" fluid rounded/>)}
-                        <Form.Control type="file" multiple accept="image/*" onChange={onImageOtherChange}/>
+                        <Row>
+                            <Col >
+                                {imageURLs.map(imageSrc =>
+                                    <Image className="mb-2 mx-2" style={{ height: 100 }} src={imageSrc} alt="product_img" fluid rounded />
+                                )}
+                            </Col>
+                        </Row>
+                        <Form.Control type="file" multiple accept="image/*" onChange={onImageOtherChange} />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ชื่อสินค้า</Form.Label>
@@ -158,7 +164,7 @@ export default function ProductPage() {
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ราคา</Form.Label>
                         <InputGroup className="mb-3">
-                            <Form.Control type="text" defaultValue={""}/>
+                            <Form.Control type="text" defaultValue={""} />
                             <InputGroup.Text>บาท</InputGroup.Text>
                         </InputGroup>
                     </Form.Group>
@@ -181,12 +187,12 @@ export default function ProductPage() {
                 <Modal.Body>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label className='d-block'>รูปสินค้า</Form.Label>
-                        <Image className="mb-2" style={{height:200}} src={'https://pyxis.nymag.com/v1/imgs/995/fa8/85410a597ae40972b3839e1d0a1470e497-cannabis.rsquare.w700.jpg'} alt="product_img" fluid rounded/>
-                        <Form.Control type="file" accept="image/*"/>
+                        <Image className="mb-2" style={{ height: 200 }} src={'https://pyxis.nymag.com/v1/imgs/995/fa8/85410a597ae40972b3839e1d0a1470e497-cannabis.rsquare.w700.jpg'} alt="product_img" fluid rounded />
+                        <Form.Control type="file" accept="image/*" />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label className='d-block'>รูปสินค้า เพิ่มเติม</Form.Label>
-                        <Image className="mb-2" src={'images/user.jpg'} alt="otherProductImage" fluid rounded/>
+                        <Image className="mb-2" src={'images/user.jpg'} alt="otherProductImage" fluid rounded />
                         <Form.Control type="file" multiple accept="image/*" />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
@@ -219,7 +225,7 @@ export default function ProductPage() {
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ราคา</Form.Label>
                         <InputGroup className="mb-3">
-                            <Form.Control type="text" defaultValue={"1250"}/>
+                            <Form.Control type="text" defaultValue={"1250"} />
                             <InputGroup.Text>บาท</InputGroup.Text>
                         </InputGroup>
                     </Form.Group>
