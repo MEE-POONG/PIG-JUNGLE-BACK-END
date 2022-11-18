@@ -24,7 +24,7 @@ export default function ContactPage() {
                             <h6 className="mb-4"> ข้อมูลติดต่อ </h6>
                             <form>
                                 <div className="mb-3">
-                                    <label for="Inputname" className="form-label">ชื่อร้าน</label>
+                                    <label for="Inputname" className="form-label">ชื่อของร้าน</label>
                                     <input type="text" className="form-control" style={{ width: "500px" }} id="#" placeholder='Pig jungle' />
                                     <div className="mb-3">
                                         <label for="Inputphone" className="form-label">เบอร์โทรศัพท์</label>
