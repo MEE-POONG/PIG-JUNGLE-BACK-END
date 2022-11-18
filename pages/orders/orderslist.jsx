@@ -8,14 +8,13 @@ import Link from 'next/link';
 
 export default function OrdersListPage() {
   const router = useRouter();
-//   const [createModal, setCreateModal] = useState(false);
-//   const [deleteModal, setDeleteModal] = useState(false);
+  // modal
+  const [showModalCreate, setShowModalCreate] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState(false);
+  const ShowModalCreate = () => setShowModalCreate(true);
+  const ShowModalEdit = () => setShowModalEdit(true);
+  const CloseModal = () => { setShowModalCreate(false), setShowModalEdit(false) };
 
-//   const createClose = () => setCreateModal(false);
-//   const createShow = () => setCreateModal(true);
-
-//   const deleteClose = () => setDeleteModal(false);
-   const deleteShow = () => setDeleteModal(true);
   return (
     < >
       <Head>
@@ -75,31 +74,18 @@ export default function OrdersListPage() {
                                     <div className='manager'>
                                         <OverlayTrigger
                                           placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >ดูรายละเอียด</Tooltip>} >
-                                          <Link href='./moneytransfer/transfer'>
-                                            <Button className="btn btn-sm mx-1">
+                                            <Button className="btn btn-sm btn-info mx-1" onClick={ShowModalEdit}>
                                               <FaClipboardList />
                                             </Button>
-                                          </Link>
-                                        </OverlayTrigger>
-                                        <OverlayTrigger
-                                          placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >แก้ไขใบสั่งซื้อ</Tooltip>} >
-                                          <Link href='./orders/testckeditor'>
-                                            <Button className="btn btn-sm mx-1">
-                                              <FaEdit />
-                                            </Button>
-                                          </Link>
                                         </OverlayTrigger>
                                         <OverlayTrigger
                                           placement="bottom" delay={{ show: 250, hide: 400 }} overlay={<Tooltip id="button-tooltip" >ลบใบสั่งซืื้อ</Tooltip>} >
-                                          <Button className="btn btn-sm mx-1" onClick={deleteShow}>
+                                          <Button className="btn btn-sm btn-danger mx-1" onClick={ShowModalEdit}>
                                             <FaTimes />
                                           </Button>
                                         </OverlayTrigger>
                                       </div>
                                     </td>
-                                    
-
-                                    {/* onClick={createShow} */}
                                 </tr>
                             </tbody>
                         </table>
@@ -107,47 +93,21 @@ export default function OrdersListPage() {
                 </div>
       </Container>
 
-       {/* <Modal show={createModal} onHide={createClose} centered className="bg-templant">
-        <Modal.Header closeButton >
-          <Modal.Title>รายละเอียดคำสั่งซื้อ</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form.Group controlId="formFile" className="mb-3">
-            <Form.Label>ชื่อโปรเจคการโอน</Form.Label>
-            <Form.Control type="text" />
-          </Form.Group>
-          <Form.Group controlId="formFile" className="mb-3">
-            <Form.Label>รายการโอนเงิน</Form.Label>
-            <Form.Control type="file" />
-          </Form.Group>
-        </Modal.Body>
-        <Modal.Footer>
-          {/* <Button variant="secondary" onClick={createClose}>
-            ยกเลิก
-          </Button> 
-          <Button variant="light" onClick={createClose}>
-            ปิด
-          </Button>
-        </Modal.Footer>
-      </Modal>
-      <Modal show={deleteModal} onHide={deleteClose} centered className="bg-templant">
-        <Modal.Header closeButton >
-          <Modal.Title>ต้องการลบโปรเจค .......</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <Form.Label>ยืนยันการลบข้อมูล</Form.Label>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={deleteClose}>
-            ยกเลิก
-          </Button>
-          <Button variant="primary" onClick={deleteClose}>
-            ยืนยัน
-          </Button>
-        </Modal.Footer>
-      </Modal>  */}
-
-
+      {/* Edit */}
+      <Modal show={showModalEdit} onHide={CloseModal} centered className="bg-templant">
+                <Modal.Header closeButton >
+                    <Modal.Title>รายละเอียดการสั่งสินค้า</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+               
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={CloseModal}>
+                        ปิด
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+    
     
     </ >
   );

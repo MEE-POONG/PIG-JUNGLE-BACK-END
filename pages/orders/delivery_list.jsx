@@ -21,7 +21,7 @@ export default function DeliveryListPage() {
       <Container fluid className=" pt-4 px-4">
       <div className="bg-secondary text-center rounded shadow p-4">
                     <div className="d-flex align-items-center justify-content-between mb-4">
-                        <h6 className="mb-0">สถานะการจัดส่งสินค้า</h6>
+                        <h5 className="mb-0">สถานะการจัดส่งสินค้า</h5>
                         <a href="">Show All</a>
                     </div>
                     <div className="table-responsive">
@@ -39,10 +39,26 @@ export default function DeliveryListPage() {
                             <tbody>
                                 <tr>
                                     <td><input className="form-check-input" type="checkbox" /></td>
-                                    <td>เลขออเดอร์</td>
-                                    <td>ชื่อลูกค้า</td>
-                                    <td>0990000000</td>
-                                    <td>กำลังจัดส่ง</td>
+                                    <td>KC0001</td>
+                                    <td>long long</td>
+                                    <td>TH9785JK544</td>
+                                    <td> <i className='btn btn-sm btn-danger'>ยกเลิก</i></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><input className="form-check-input" type="checkbox" /></td>
+                                    <td>KC0002</td>
+                                    <td>long long</td>
+                                    <td>TH9785JK544</td>
+                                    <td> <i className='btn btn-sm btn-primary'>จัดส่งสำเร็จ</i></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><input className="form-check-input" type="checkbox" /></td>
+                                    <td>KC0003</td>
+                                    <td>long long</td>
+                                    <td>TH9785JK544</td>
+                                    <td> <i className='btn btn-sm btn-warning'>กำลังจัดส่ง</i></td>
                                     <td></td>
                                 </tr>
                             </tbody>
