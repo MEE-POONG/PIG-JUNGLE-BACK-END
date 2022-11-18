@@ -11,6 +11,7 @@ function Editor() {
                     extraPlugins: "uploadimage",
                     filebrowserUploadMethod: "form",
                     filebrowserUploadUrl: ("/uploader/upload"),
+                    filebrowserBrowseUrl: '/addgallery'
                 }}
                 
             />
