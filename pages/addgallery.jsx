@@ -1,8 +1,8 @@
 import React from "react";
-import {Row, Col, Card, Button, Image} from "react-bootstrap";
-import {BiX} from "react-icons/bi";
+import { Row, Col, Card, Button, Image } from "react-bootstrap";
+import { BiX } from "react-icons/bi";
 // import defaultImage from "../assets/img/default.jpg";
-// import {GalleryArray} from "../pages/users/UsersData";
+// import {GalleryArray}f rom "../pages/users/UsersData";
 
 function getUrlParam(paramName) {
   // console.log("Test", paramName);
@@ -51,6 +51,12 @@ export default function AddGallery() {
         </Card.Header>
         <Card.Body>
           <Row>
+            <Col md="4">
+              <Image
+                onClick={() => returnFileUrl(defaultImage)}
+                src={'/images/testimonial-1.jpg'}
+              />
+            </Col>
             {/* {GalleryArray.map((GalleryArray, key) => {
               return (
                 <Col xs={6} md={4} key={key}>
