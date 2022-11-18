@@ -179,10 +179,10 @@ export default function TheSlideNav() {
                 จัดการสมาขิก
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
+                <Link id="buttons" href="/user">
                   <a className="dropdown-item">เพิ่ม/ลบ/แก้ไข สมาชิก</a>
                 </Link>
-                <Link id="typographys" href="/typographys">
+                <Link id="typographys" href="/address">
                   <a className="dropdown-item">ที่อยู่สมาชิก</a>
                 </Link>
               </Dropdown.Menu>
