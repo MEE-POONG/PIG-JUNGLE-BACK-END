@@ -42,8 +42,18 @@ export default function OrdersListPage() {
                           </form>
                           <a className='btn btn-sm btn-light mx-1'> <FaSearch/> </a>
                         </div>
+                        <Form.Group controlId="formFile" className="mb-3">
+                                <Form.Select>
+                                    <option>สถานะการชำระเงิน</option>
+                                    <option value="1">ชำระเงินแล้ว</option>
+                                    <option value="2">ยังไม่ชำระเงิน</option>
+                                </Form.Select>
+                            </Form.Group>
                       </div>
                     </div>
+
+                  
+                     
                     </Row>
 
                     

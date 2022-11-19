@@ -2,6 +2,7 @@ import Head from 'next/head';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
 import { Container, Image, Row, Button } from 'react-bootstrap';
+import { FaSearch,} from 'react-icons/fa';
 
 export default function DeliveryListPage() {
   const router = useRouter();
@@ -21,6 +22,22 @@ export default function DeliveryListPage() {
                         <h5 className="mb-0">สถานะการจัดส่งสินค้า</h5>
                         <a href="">Show All</a>
                     </div>
+                     {/* Search Order List */}
+                     <Row className=" g-4">
+                    <div className="col-sm-12 col-md-6 col-xl-4">
+                      <div className="h-100 bg-secondary rounded p-4">
+                        <div className="d-flex align-items-center justify-content-between mb-2">
+                          <h6 className="mb-0">ค้นหา</h6>
+                          <form className="d-none d-md-flex ms-4">
+                            <input className="form-control bg-dark border-0" type="search" placeholder="Search" />
+                          </form>
+                          <a className='btn btn-sm btn-light mx-1'> <FaSearch/> </a>
+                        </div>
+                          
+                      </div>
+                    </div>
+                    </Row>
+                     {/* Start table */}
                     <div className="table-responsive">
                         <table className="table text-start align-middle table-bordered table-hover mb-0">
                             <thead>
