@@ -2,10 +2,71 @@ import Head from 'next/head';
 import { useState } from 'react';
 import IndexPage from "components/layouts/IndexPage";
 import { useRouter } from 'next/router';
-import { Container, Table, Button, Form, OverlayTrigger, Badge,Modal } from 'react-bootstrap';
-import {FaReply,FaPlus,FaEdit,FaTrash } from 'react-icons/fa';
+import { Container, Table, Button, Form, OverlayTrigger, Badge, Modal } from 'react-bootstrap';
+import { FaReply, FaPlus, FaEdit, FaTrash } from 'react-icons/fa';
 
 export default function TransferPage() {
+
+
+
+  const data = {
+    users: [
+      {
+        id: "1",
+        image: "images/user.jpg",
+        name: "กัญ 01",
+        email: "gg@gmail.com",
+        tel: "022222222",
+        date: "11/12/2022"
+      },
+      {
+        id: "2",
+        image: "images/user.jpg",
+        name: "กัญ 02",
+        email: "gg@gmail.com",
+        tel: "022222222",
+        date: "11/12/2022"
+
+      },
+      {
+        id: "3",
+        image: "images/user.jpg",
+        name: "กัญ 03",
+        email: "gg@gmail.com",
+        tel: "022222222",
+        date: "11/12/2022"
+
+      },
+      {
+        id: "4",
+        image: "images/user.jpg",
+        name: "กัญ 04",
+        email: "gg@gmail.com",
+        tel: "022222222",
+        date: "11/12/2022"
+
+      },
+      {
+        id: "5",
+        image: "images/user.jpg",
+        name: "กัญ 05",
+        email: "gg@gmail.com",
+        tel: "022222222",
+        date: "11/12/2022"
+
+      },
+      {
+        id: "6",
+        image: "images/user.jpg",
+        name: "กัญ 06",
+        email: "gg@gmail.com",
+        tel: "022222222",
+        date: "11/12/2022"
+
+      }
+    ]
+  }
+
 
   const [createModal, setCreateModal] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
@@ -23,7 +84,7 @@ export default function TransferPage() {
   return (
     < >
       <Head>
-      <title>Pig Jungle</title>
+        <title>Pig Jungle</title>
         <meta
           name="description"
           content="I2AROBOT 2"
@@ -35,14 +96,14 @@ export default function TransferPage() {
           <div className="d-flex align-items-center justify-content-between mb-4">
             <h5 className="mb-0 w-m-max me-2">ชื่อผู้ใช้</h5>
             <Button variant="success" onClick={createShow}>
-              <FaPlus/>
+              <FaPlus />
             </Button>
           </div>
 
           <div className="d-flex align-items-center border-bottom py-2">
             <div className="table-responsive w-100">
               <Table className="table table-striped text-start align-middle  align-items-center table-hover ">
-                
+
                 <thead>
                   <tr>
                     <th >id</th>
@@ -55,42 +116,20 @@ export default function TransferPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td><img className="img-fluid rounded-circle mx-auto mb-4" src="images/testimonial-1.jpg" style={{ width: "40px", height: "40px"  }} /></td>
-                    <td>นายมา แล้วไปไหนไม่รู้</td>
-                    <td>gmail@hotmail.com</td>
-                    <td>08888888</td>
-                    <td>31/12/2023 </td>
+                  {data.users.map((u) => (
+                     <tr>
+                    <th>{u.id}</th>
+                    <td><img className="img-fluid rounded-circle mx-auto mb-4" src={u.image} style={{ width: "40px", height: "40px" }} /></td>
+                    <td>{u.name}</td>
+                    <td>{u.email}</td>
+                    <td>{u.tel}</td>
+                    <td>{u.date} </td>
                     <td>
-                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit/></Button>
-                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash/></Button>
+                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit /></Button>
+                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash /></Button>
                     </td>
                   </tr>
-                  <tr>
-                    <th>1</th>
-                    <td><img className="img-fluid rounded-circle mx-auto mb-4" src="images/testimonial-1.jpg" style={{ width: "40px", height: "40px"  }} /></td>
-                    <td>นายมา แล้วไปไหนไม่รู้</td>
-                    <td>gmail@hotmail.com</td>
-                    <td>08888888</td>
-                    <td>31/12/2023 </td>
-                    <td>
-                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit/></Button>
-                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash/></Button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>1</th>
-                    <td><img className="img-fluid rounded-circle mx-auto mb-4" src="images/testimonial-1.jpg" style={{ width: "40px", height: "40px"  }} /></td>
-                    <td>นายมา แล้วไปไหนไม่รู้</td>
-                    <td>gmail@hotmail.com</td>
-                    <td>08888888</td>
-                    <td>31/12/2023 </td>
-                    <td>
-                      <Button className="btn btn-sm btn-success me-2" onClick={editShow}><FaEdit/></Button>
-                      <Button className="btn btn-sm btn-danger me-2" onClick={deleteShow}><FaTrash/></Button>
-                    </td>
-                  </tr>
+                  ))}
                 </tbody>
               </Table>
             </div>
@@ -103,7 +142,7 @@ export default function TransferPage() {
           <Modal.Title>เพิ่มสมาชิก</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Group controlId="formFile" className="mb-3">
             <Form.Label>ชื่อผู้ใช้</Form.Label>
             <Form.Control type="text" defaultValue='' />
           </Form.Group>
@@ -118,10 +157,10 @@ export default function TransferPage() {
           <Form.Group controlId="formFile" className="mb-3">
             <Form.Label>รหัสผ่าน</Form.Label>
             <Form.Control type="password" />
-          <Form.Group controlId="formFile" className="mb-3">
-            <Form.Label>รูปผู้ใช้</Form.Label>
-            <Form.Control type="file" />
-          </Form.Group>
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>รูปผู้ใช้</Form.Label>
+              <Form.Control type="file" />
+            </Form.Group>
           </Form.Group>
         </Modal.Body>
         <Modal.Footer>

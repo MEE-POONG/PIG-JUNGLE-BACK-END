@@ -5,6 +5,36 @@ import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 
 export default function ProductPage() {
 
+    const data = {
+        products:[
+            {
+                id:"1",
+                image:"images/user.jpg",
+                name:"บ้อง",
+                type:"อุปกรณ์",
+                total:"60",
+                price:"2000"
+            },
+            {
+                id:"2",
+                image:"images/user.jpg",
+                name:"กัญกัญ",
+                type:"กัญชา",
+                total:"2500",
+                price:"200"
+            },
+            {
+                id:"2",
+                image:"images/user.jpg",
+                name:"Product 3",
+                type:"Jhon Doe",
+                total:"40",
+                price:"200"
+            }
+        ]
+
+    }
+
     // modal
     const [showModalCreate, setShowModalCreate] = useState(false);
     const [showModalEdit, setShowModalEdit] = useState(false);
@@ -67,45 +97,21 @@ export default function ProductPage() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                {data.products.map((p) =>(
+                                    <tr>
                                     <td>
-                                        <img className="rounded-circle flex-shrink-0" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
+                                        <img className="rounded-circle flex-shrink-0" src={p.image} alt="" style={{ width: "40px", height: "40px" }} />
                                     </td>
-                                    <td>บ้อง</td>
-                                    <td>อุปกรณ์</td>
-                                    <td>60 ชิ้น</td>
-                                    <td>2000 บาท</td>
-                                    <td>
-                                        <a className="btn btn-sm btn-success me-2" onClick={ShowModalEdit}><FaEdit /></a>
-                                        <a className="btn btn-sm btn-danger me-2" href=""><FaTrash /></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <img className="rounded-circle flex-shrink-0" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
-                                    </td>
-                                    <td>กัญกัญ</td>
-                                    <td>กัญชา</td>
-                                    <td>2500 กรัม</td>
-                                    <td>200 บาท</td>
+                                    <td>{p.name}</td>
+                                    <td>{p.type}</td>
+                                    <td>{p.total} ชิ้น</td>
+                                    <td>{p.price} บาท</td>
                                     <td>
                                         <a className="btn btn-sm btn-success me-2" onClick={ShowModalEdit}><FaEdit /></a>
                                         <a className="btn btn-sm btn-danger me-2" href=""><FaTrash /></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <img className="rounded-circle flex-shrink-0" src={'images/user.jpg'} alt="" style={{ width: "40px", height: "40px" }} />
-                                    </td>
-                                    <td>Product 3</td>
-                                    <td>Jhon Doe</td>
-                                    <td>40 ชื้น</td>
-                                    <td>200 บาท</td>
-                                    <td>
-                                        <a className="btn btn-sm btn-success me-2" onClick={ShowModalEdit}><FaEdit /></a>
-                                        <a className="btn btn-sm btn-danger me-2" href=""><FaTrash /></a>
-                                    </td>
-                                </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
