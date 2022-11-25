@@ -6,6 +6,7 @@ import useAxios from 'axios-hooks'
 
 export default function ProductPage() {
     const [{ data: categoryData }, getCatagories] = useAxios({ url: '/api/category' })
+    const [{ data: unitData }, getUnit] = useAxios({ url: '/api/unit' })
     const [{ data: productData, loading, error }, getProducts] = useAxios({ url: '/api/products' })
 
     const [{ data: postData, error: errorMessage, loading: productLoading }, executeProduct] = useAxios({ url: '/api/products', method: 'POST' }, { manual: true });
@@ -59,7 +60,7 @@ export default function ProductPage() {
 
     if (loading || productLoading) return <p>Loading...</p>
     if (error || errorMessage) return <p>Error!</p>
-    
+
     return (
         <>
             <Container fluid className="pt-4 px-4">
@@ -90,7 +91,7 @@ export default function ProductPage() {
                                         </td>
                                         <td>{product.name}</td>
                                         <td>{product?.category?.name}</td>
-                                        <td>{product.amount} {product.unit}</td>
+                                        <td>{product.amount} {product.unit.name}</td>
                                         <td>{product.price} บาท</td>
                                         <td>
                                             <a className="btn btn-sm btn-success me-2" onClick={ShowModalEdit}><FaEdit /></a>
@@ -148,9 +149,9 @@ export default function ProductPage() {
                         <Form.Control type="text" value={amount} onChange={event => setAmount(event.target.value)} />
                         <Form.Select value={unit} onchange={event => setUnit(event.target.value)}>
                             <option value="">หน่วยนับ</option>
-                            <option value="ชิ้น">ชิ้น</option>
-                            <option value="กรัม">กรัม</option>
-                            <option value="กิโลกรัม">กิโลกรัม</option>
+                            {unitData?.map((unit, index) => (
+                                <option key={index} value={unit.id}>{unit.name}</option>
+                            ))}
                         </Form.Select>
                     </InputGroup>
                     <Form.Group controlId="formFile" className="mb-3">
@@ -185,7 +186,8 @@ export default function ProductPage() {
                                 setUnit(''),
                                 setPrice(''),
                                 getProducts(),
-                                getCatagories()
+                                getCatagories(),
+                                getUnits(),
                             ]).then(() => {
                                 CloseModal()
                             })

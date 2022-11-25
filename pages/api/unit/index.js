@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     switch (method) {
         case 'GET':
             try {
-                const data = await prisma.product.findMany({ include: { category: true, unit: true } });
+                const data = await prisma.unit.findMany();
                 res.status(200).json(data)
             } catch (error) {
                 res.status(400).json({ success: false })
@@ -14,15 +14,9 @@ export default async function handler(req, res) {
             break
         case 'POST':
             try {
-                await prisma.product.create({
+                await prisma.unit.create({
                     data: {
                         name: req.body.name,
-                        price: parseInt(req.body.price),
-                        description: req.body.description,
-                        image: req.body.image,
-                        categoryId: req.body.categoryId,
-                        amount: parseInt(req.body.amount),
-                        unit: req.body.unit,
                     }
                 })
                 res.status(201).json({ success: true })
