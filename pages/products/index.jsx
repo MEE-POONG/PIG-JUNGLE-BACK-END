@@ -8,8 +8,11 @@ export default function ProductPage() {
     const [{ data: categoryData }, getCatagories] = useAxios({ url: '/api/category' })
     const [{ data: unitData }, getUnits] = useAxios({ url: '/api/unit' })
     const [{ data: productData, loading, error }, getProducts] = useAxios({ url: '/api/products' })
+    const [{ data: productById, loading: productByIdLoading, error: productByIdError }, getProductById] = useAxios({}, { manual: true })
 
     const [{ data: postData, error: errorMessage, loading: productLoading }, executeProduct] = useAxios({ url: '/api/products', method: 'POST' }, { manual: true });
+    const [{ loading: updateProductLoading, error: updateProductError }, executeProductPut] = useAxios({}, { manual: true })
+    const [{ loading: deleteProductLoading, error: deleteProductError }, executeProductDelete] = useAxios({}, { manual: true })
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -17,18 +20,39 @@ export default function ProductPage() {
     const [description, setDescription] = useState('');
     const [unit, setUnit] = useState('');
     const [amount, setAmount] = useState('');
+    const [img, setImg] = useState('');
+
+    // image product other
+    const [images, setImages] = useState([])
+    const [imageURLs, setImageURLs] = useState([])
+
+    // image product
+    const [image, setImage] = useState([])
+    const [imageURL, setImageURL] = useState([])
 
 
     // modal
     const [showModalCreate, setShowModalCreate] = useState(false);
     const [showModalEdit, setShowModalEdit] = useState(false);
-    const ShowModalCreate = () => setShowModalCreate(true);
-    const ShowModalEdit = () => setShowModalEdit(true);
-    const CloseModal = () => { setShowModalCreate(false), setShowModalEdit(false) };
 
-    // image product
-    const [image, setImage] = useState([])
-    const [imageURL, setImageURL] = useState([])
+    useEffect(() => {
+        setName(productById?.name)
+        setPrice(productById?.price)
+        setCategory(productById?.categoryId)
+        setDescription(productById?.description)
+        setUnit(productById?.unitId)
+        setAmount(productById?.amount)
+        setImg(productById?.image)
+    }, [productById])
+
+    const ShowModalCreate = () => setShowModalCreate(true);
+
+    const ShowModalEdit = async (id) => {
+        await getProductById({ url: '/api/products/' + id, method: 'GET' });
+        setShowModalEdit(true);
+    }
+
+    const CloseModal = () => { setShowModalCreate(false), setShowModalEdit(false) };
 
     useEffect(() => {
 
@@ -58,8 +82,8 @@ export default function ProductPage() {
         setImages([...e.target.files])
     }
 
-    if (loading || productLoading) return <p>Loading...</p>
-    if (error || errorMessage) return <p>Error!</p>
+    if (loading || productLoading || productByIdLoading || updateProductLoading || deleteProductLoading) return <p>Loading...</p>
+    if (error || errorMessage || productByIdError || updateProductError || deleteProductError) return <p>Error!</p>
 
     return (
         <>
@@ -94,8 +118,13 @@ export default function ProductPage() {
                                         <td>{product.amount} {product.unit.name}</td>
                                         <td>{product.price} บาท</td>
                                         <td>
-                                            <a className="btn btn-sm btn-success me-2" onClick={ShowModalEdit}><FaEdit /></a>
-                                            <a className="btn btn-sm btn-danger me-2" href=""><FaTrash /></a>
+                                            <a className="btn btn-sm btn-success me-2" onClick={() => ShowModalEdit(product.id)}><FaEdit /></a>
+                                            <a className="btn btn-sm btn-danger me-2"
+                                                onClick={() => executeProductDelete({
+                                                    url: '/api/products/' + product.id,
+                                                    method: 'DELETE'
+                                                })}
+                                            ><FaTrash /></a>
                                         </td>
                                     </tr>
                                 ))}
@@ -206,45 +235,52 @@ export default function ProductPage() {
                 <Modal.Body>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label className='d-block'>รูปสินค้า</Form.Label>
-                        <Image className="mb-2" style={{ height: 200 }} src={'https://pyxis.nymag.com/v1/imgs/995/fa8/85410a597ae40972b3839e1d0a1470e497-cannabis.rsquare.w700.jpg'} alt="product_img" fluid rounded />
-                        <Form.Control type="file" accept="image/*" />
+                        {imageURL?.length === 0 && <Image className="mb-2" style={{ height: 200 }} src={img} alt="product_img" fluid rounded />}
+                        {imageURL?.map((imageSrcProduct, index) => <Image key={index} className="mb-2" style={{ height: 200 }} src={imageSrcProduct} alt="product_img" fluid rounded />)}
+                        <Form.Control type="file" accept="image/*" onChange={onImageProductChange} />
                     </Form.Group>
-                    <Form.Group controlId="formFile" className="mb-3">
+                    {/* <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label className='d-block'>รูปสินค้า เพิ่มเติม</Form.Label>
-                        <Image className="mb-2" src={'images/user.jpg'} alt="otherProductImage" fluid rounded />
-                        <Form.Control type="file" multiple accept="image/*" />
-                    </Form.Group>
+                        <Row>
+                            <Col >
+                                {imageURLs.map((imageSrc, index) =>
+                                    <Image key={index} className="mb-2 mx-2" style={{ height: 100 }} src={imageSrc} alt="product_img" fluid rounded />
+                                )}
+                            </Col>
+                        </Row>
+                        <Form.Control type="file" multiple accept="image/*" onChange={onImageOtherChange} />
+                    </Form.Group> */}
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ชื่อสินค้า</Form.Label>
-                        <Form.Control type="text" defaultValue={"ชื่อสินค้า"} />
+                        <Form.Control type="text" value={name} onChange={event => setName(event.target.value)} />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>รายละเอียดสินค้า</Form.Label>
-                        <Form.Control as="textarea" rows={3} defaultValue={"รายละเอียดสินค้า"} />
+                        <Form.Control as="textarea" rows={3} value={description} onChange={event => setDescription(event.target.value)} />
                     </Form.Group>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ประเภทสินค้า</Form.Label>
-                        <Form.Select>
-                            <option>ประเภทสินค้า</option>
-                            <option value="1">อุปกรณ์</option>
-                            <option value="2">กัญชา</option>
-                            <option value="3">ของเสริม</option>
+                        <Form.Select value={category} onChange={event => setCategory(event.target.value)}>
+                            <option value="">ประเภทสินค้า</option>
+                            {categoryData?.map((category, index) => (
+                                <option key={index} value={category.id}>{category.name}</option>
+                            ))}
                         </Form.Select>
                     </Form.Group>
                     <Form.Label>จำนวนคงเหลือ</Form.Label>
                     <InputGroup className="mb-3" >
-                        <Form.Control type="text" defaultValue={"250"} />
-                        <Form.Select defaultValue="Choose...">
-                            <option>หน่วยนับ</option>
-                            <option>ชิ้น</option>
-                            <option>กรัม</option>
-                            <option>กิโลกรัม</option>
+                        <Form.Control type="text" value={amount} onChange={event => setAmount(event.target.value)} />
+                        <Form.Select value={unit} onchange={event => setUnit(event.target.value)}>
+                            <option value="">หน่วยนับ</option>
+                            {unitData?.map((unit, index) => (
+                                <option key={index} value={unit.id}>{unit.name}</option>
+                            ))}
                         </Form.Select>
                     </InputGroup>
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ราคา</Form.Label>
                         <InputGroup className="mb-3">
-                            <Form.Control type="text" defaultValue={"1250"} />
+                            <Form.Control type="number" value={price} onChange={event => setPrice(event.target.value)} />
                             <InputGroup.Text>บาท</InputGroup.Text>
                         </InputGroup>
                     </Form.Group>
@@ -253,7 +289,36 @@ export default function ProductPage() {
                     <Button variant="secondary" onClick={CloseModal}>
                         ยกเลิก
                     </Button>
-                    <Button variant="success">
+                    <Button variant="success" onClick={() => {
+
+                        executeProductPut({
+                            url: '/api/products/' + productById?.id,
+                            method: 'PUT',
+                            data: {
+                                name: name,
+                                description: description,
+                                categoryId: category,
+                                amount: amount,
+                                unitId: unit,
+                                price: price,
+                            }
+                        }).then(() => {
+                            Promise.all([
+                                setName(''),
+                                setDescription(''),
+                                setCategory(''),
+                                setAmount(''),
+                                setUnit(''),
+                                setPrice(''),
+                                getProducts(),
+                                getCatagories(),
+                                getUnits(),
+                            ]).then(() => {
+                                CloseModal()
+                            })
+                        })
+
+                    }}>
                         บันทึก
                     </Button>
                 </Modal.Footer>
