@@ -16,14 +16,24 @@ model Category {
   deletedAt DateTime? @map("deleted_at")
 }
 
+model Unit {
+  id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name      String
+  products  Product[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime? @map("deleted_at")
+}
+
 model Product {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String?
   description String?
+  unit        Unit?     @relation(fields: [unitId], references: [id])
+  unitId      String?   @db.Uuid
   category    Category? @relation(fields: [categoryId], references: [id])
   categoryId  String?   @db.Uuid
   amount      Int?
-  unit        String?
   price       Int?
   image       String?
   createdAt   DateTime? @default(now())
