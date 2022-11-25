@@ -6,7 +6,7 @@ import useAxios from 'axios-hooks'
 
 export default function ProductPage() {
     const [{ data: categoryData }, getCatagories] = useAxios({ url: '/api/category' })
-    const [{ data: unitData }, getUnit] = useAxios({ url: '/api/unit' })
+    const [{ data: unitData }, getUnits] = useAxios({ url: '/api/unit' })
     const [{ data: productData, loading, error }, getProducts] = useAxios({ url: '/api/products' })
 
     const [{ data: postData, error: errorMessage, loading: productLoading }, executeProduct] = useAxios({ url: '/api/products', method: 'POST' }, { manual: true });
@@ -147,10 +147,10 @@ export default function ProductPage() {
                     <Form.Label>จำนวนคงเหลือ</Form.Label>
                     <InputGroup className="mb-3" >
                         <Form.Control type="text" value={amount} onChange={event => setAmount(event.target.value)} />
-                        <Form.Select value={unit} onchange={event => setUnit(event.target.value)}>
+                        <Form.Select value={unit} onChange={event => setUnit(event.target.value)}>
                             <option value="">หน่วยนับ</option>
-                            {unitData?.map((unit, index) => (
-                                <option key={index} value={unit.id}>{unit.name}</option>
+                            {unitData?.map((units, index) => (
+                                <option key={index} value={units.id}>{units.name}</option>
                             ))}
                         </Form.Select>
                     </InputGroup>
@@ -173,7 +173,7 @@ export default function ProductPage() {
                                 description: description,
                                 categoryId: category,
                                 amount: amount,
-                                unit: unit,
+                                unitId: unit,
                                 price: price,
                                 image: "https://consumer.healthday.com/media-library/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yMzYzNDQzOS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTcyNzU0MzgzMn0.TnRo4v4ekpBk8vWeNr9t-w-2BSOBV7uyXT0yyzvZcMg/image.jpg?width=1245&height=700&quality=85&coordinates=0%2C0%2C0%2C0",
                             }

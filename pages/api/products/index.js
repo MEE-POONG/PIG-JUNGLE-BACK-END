@@ -22,7 +22,7 @@ export default async function handler(req, res) {
                         image: req.body.image,
                         categoryId: req.body.categoryId,
                         amount: parseInt(req.body.amount),
-                        unit: req.body.unit,
+                        unitId: req.body.unitId,
                     }
                 })
                 res.status(201).json({ success: true })
