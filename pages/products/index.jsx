@@ -66,10 +66,6 @@ export default function ProductPage() {
         setImage([...e.target.files])
     }
 
-    // image product other
-    const [images, setImages] = useState([])
-    const [imageURLs, setImageURLs] = useState([])
-
     useEffect(() => {
         if (images.length < 1) return
 
