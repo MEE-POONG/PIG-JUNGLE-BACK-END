@@ -3,6 +3,7 @@ import IndexPage from "components/layouts/IndexPage"
 import { Container, Modal, Button, Form, Image, InputGroup, Row, Col } from 'react-bootstrap'
 import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa'
 import useAxios from 'axios-hooks'
+import FormData from 'form-data'
 
 export default function ProductPage() {
     const [{ data: categoryData }, getCatagories] = useAxios({ url: '/api/category' })
@@ -13,6 +14,8 @@ export default function ProductPage() {
     const [{ data: postData, error: errorMessage, loading: productLoading }, executeProduct] = useAxios({ url: '/api/products', method: 'POST' }, { manual: true });
     const [{ loading: updateProductLoading, error: updateProductError }, executeProductPut] = useAxios({}, { manual: true })
     const [{ loading: deleteProductLoading, error: deleteProductError }, executeProductDelete] = useAxios({}, { manual: true })
+
+    const[{loading: imgLoading, error: imgError}, uploadImage]= useAxios({url: '/api/upload', method: 'POST'},{manual: true});
 
     const [name, setName] = useState('');
     const [price, setPrice] = useState('');
@@ -78,8 +81,8 @@ export default function ProductPage() {
         setImages([...e.target.files])
     }
 
-    if (loading || productLoading || productByIdLoading || updateProductLoading || deleteProductLoading) return <p>Loading...</p>
-    if (error || errorMessage || productByIdError || updateProductError || deleteProductError) return <p>Error!</p>
+    if (loading || productLoading || productByIdLoading || updateProductLoading || deleteProductLoading || imgLoading) return <p>Loading...</p>
+    if (error || errorMessage || productByIdError || updateProductError || deleteProductError || imgError) return <p>Error!</p>
 
     return (
         <>
@@ -107,7 +110,7 @@ export default function ProductPage() {
                                 {productData?.map((product, index) => (
                                     <tr key={index}>
                                         <td>
-                                            <img className="rounded-circle flex-shrink-0" src={product.image} alt="" style={{ width: "40px", height: "40px" }} />
+                                            <img className="rounded-circle flex-shrink-0" src={product.image} alt="" style={{ width: "60px", height: "80px" }} />
                                         </td>
                                         <td>{product.name}</td>
                                         <td>{product?.category?.name}</td>
@@ -141,17 +144,6 @@ export default function ProductPage() {
                         {imageURL.map((imageSrcProduct, index) => <Image key={index} className="mb-2" style={{ height: 200 }} src={imageSrcProduct} alt="product_img" fluid rounded />)}
                         <Form.Control type="file" accept="image/*" onChange={onImageProductChange} />
                     </Form.Group>
-                    {/* <Form.Group controlId="formFile" className="mb-3">
-                        <Form.Label className='d-block'>รูปสินค้า เพิ่มเติม</Form.Label>
-                        <Row>
-                            <Col >
-                                {imageURLs.map((imageSrc, index) =>
-                                    <Image key={index} className="mb-2 mx-2" style={{ height: 100 }} src={imageSrc} alt="product_img" fluid rounded />
-                                )}
-                            </Col>
-                        </Row>
-                        <Form.Control type="file" multiple accept="image/*" onChange={onImageOtherChange} />
-                    </Form.Group> */}
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ชื่อสินค้า</Form.Label>
                         <Form.Control type="text" value={name} onChange={event => setName(event.target.value)} />
@@ -192,6 +184,11 @@ export default function ProductPage() {
                         ยกเลิก
                     </Button>
                     <Button variant="success" onClick={async event => {
+
+                        let data =new FormData();
+                        data.append('file' , image[0])
+                        const imageData = await uploadImage({data: data})
+                        const id = imageData.data.result.id
                         await executeProduct({
                             data: {
                                 name: name,
@@ -200,7 +197,8 @@ export default function ProductPage() {
                                 amount: amount,
                                 unitId: unit,
                                 price: price,
-                                image: "https://consumer.healthday.com/media-library/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpbWFnZSI6Imh0dHBzOi8vYXNzZXRzLnJibC5tcy8yMzYzNDQzOS9vcmlnaW4uanBnIiwiZXhwaXJlc19hdCI6MTcyNzU0MzgzMn0.TnRo4v4ekpBk8vWeNr9t-w-2BSOBV7uyXT0yyzvZcMg/image.jpg?width=1245&height=700&quality=85&coordinates=0%2C0%2C0%2C0",
+                                image:`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${id}/public`,  
+
                             }
                         }).then(() => {
                             Promise.all([
@@ -210,6 +208,7 @@ export default function ProductPage() {
                                 setAmount(''),
                                 setUnit(''),
                                 setPrice(''),
+                                setImage(''),
                                 getProducts(),
                                 getCatagories(),
                                 getUnits(),
@@ -235,17 +234,6 @@ export default function ProductPage() {
                         {imageURL?.map((imageSrcProduct, index) => <Image key={index} className="mb-2" style={{ height: 200 }} src={imageSrcProduct} alt="product_img" fluid rounded />)}
                         <Form.Control type="file" accept="image/*" onChange={onImageProductChange} />
                     </Form.Group>
-                    {/* <Form.Group controlId="formFile" className="mb-3">
-                        <Form.Label className='d-block'>รูปสินค้า เพิ่มเติม</Form.Label>
-                        <Row>
-                            <Col >
-                                {imageURLs.map((imageSrc, index) =>
-                                    <Image key={index} className="mb-2 mx-2" style={{ height: 100 }} src={imageSrc} alt="product_img" fluid rounded />
-                                )}
-                            </Col>
-                        </Row>
-                        <Form.Control type="file" multiple accept="image/*" onChange={onImageOtherChange} />
-                    </Form.Group> */}
                     <Form.Group controlId="formFile" className="mb-3">
                         <Form.Label>ชื่อสินค้า</Form.Label>
                         <Form.Control type="text" value={name} onChange={event => setName(event.target.value)} />
@@ -285,9 +273,14 @@ export default function ProductPage() {
                     <Button variant="secondary" onClick={CloseModal}>
                         ยกเลิก
                     </Button>
-                    <Button variant="success" onClick={() => {
+                    <Button variant="success" onClick={async () => {
+                        let data =new FormData();
+                        data.append('file' , image[0])
+                        const imageData = await uploadImage({data: data})
+                        const id = imageData.data.result.id
+                            
 
-                        executeProductPut({
+                        await executeProductPut({
                             url: '/api/products/' + productById?.id,
                             method: 'PUT',
                             data: {
@@ -297,6 +290,8 @@ export default function ProductPage() {
                                 amount: amount,
                                 unitId: unit,
                                 price: price,
+                                image:`https://imagedelivery.net/QZ6TuL-3r02W7wQjQrv5DA/${id}/public`,  
+
                             }
                         }).then(() => {
                             Promise.all([
@@ -308,6 +303,7 @@ export default function ProductPage() {
                                 setPrice(''),
                                 getProducts(),
                                 getCatagories(),
+                                setImage(''),
                                 getUnits(),
                             ]).then(() => {
                                 CloseModal()

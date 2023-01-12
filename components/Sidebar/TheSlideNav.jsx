@@ -56,88 +56,6 @@ export default function TheSlideNav() {
               </a>
             </Link>
 
-            {/* <Dropdown bsPrefix="nav-item">
-              <Dropdown.Toggle className="nav-link" variant="">
-                <i className="me-2">
-                  <FaLaptop />
-                </i>
-                Elements
-              </Dropdown.Toggle>
-              <Dropdown.Menu className="bg-transparent border-0">
-                <Link id="buttons" href="/buttons">
-                  <a className="dropdown-item">Buttons</a>
-                </Link>
-                <Link id="typographys" href="/typographys">
-                  <a className="dropdown-item">Typography</a>
-                </Link>
-                <Link id="other" href="/elements">
-                  <a className="dropdown-item">Other Elements</a>
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Link id="widgets" href="/widgets">
-              <a className="nav-item nav-link">
-                <i className="me-2">
-                  <FaTh />
-                </i>
-                Widgets
-              </a>
-            </Link>
-            <Link href="/forms">
-              <a className="nav-item nav-link">
-                <i className="me-2 ">
-                  <FaRegKeyboard />
-                </i>
-                Forms
-              </a>
-            </Link>
-            <Link href="/tables">
-              <a className="nav-item nav-link ">
-                <i className="me-2">
-                  <FaTable />
-                </i>
-                Tables
-              </a>
-            </Link>
-            <Link href="/charts">
-              <a className="nav-item nav-link">
-                <i className="me-2">
-                  <FaRegChartBar />
-                </i>
-                Charts
-              </a>
-            </Link>
-            <Dropdown bsPrefix="nav-item">
-              <Dropdown.Toggle className="nav-link" variant="">
-                <i className="me-2">
-                  <FaRegFileAlt />
-                </i>
-                Pages
-              </Dropdown.Toggle>
-              <Dropdown.Menu className=" bg-transparent border-0">
-                <Link href="/login">
-                  <a className="dropdown-item">Login</a>
-                </Link>
-                <Link href="/register">
-                  <a className="dropdown-item">Register</a>
-                </Link>
-                <Link href="/404">
-                  <a className="dropdown-item">404 Error</a>
-                </Link>
-                <Link href="/blanks">
-                  <a className="dropdown-item">Blank Page</a>
-                </Link>
-              </Dropdown.Menu>
-            </Dropdown>
-            <Link href="/moneytransfer">
-              <a className="nav-item nav-link">
-                <i className="me-2">
-                  <FaFunnelDollar />
-                </i>
-                MoneyTransfer
-              </a>
-            </Link> */}
-
             <Dropdown bsPrefix="nav-item">
               <Dropdown.Toggle className="nav-link" variant="">
                 <i className="me-2">
@@ -164,10 +82,10 @@ export default function TheSlideNav() {
               </Dropdown.Toggle>
               <Dropdown.Menu className="bg-transparent border-0">
                 <Link id="buttons" href="/products">
-                  <a className="dropdown-item">สินค้า</a>
+                  <a className="dropdown-item">จัดการสินค้า</a>
                 </Link>
-                <Link id="typographys" href="/promotions">
-                  <a className="dropdown-item">รายการเข้าร่วม</a>
+                <Link id="typographys" href="/category">
+                  <a className="dropdown-item">จัดการประเภทสินค้า</a>
                 </Link>
               </Dropdown.Menu>
             </Dropdown>
