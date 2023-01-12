@@ -10,33 +10,105 @@ datasource db {
 model Category {
   id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String
-  products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime? @map("deleted_at")
+  products  Product[]
 }
 
 model Unit {
   id        String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name      String
-  products  Product[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
   deletedAt DateTime? @map("deleted_at")
+  products  Product[]
 }
 
 model Product {
   id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
   name        String?
-  description String?
-  unit        Unit?     @relation(fields: [unitId], references: [id])
-  unitId      String?   @db.Uuid
-  category    Category? @relation(fields: [categoryId], references: [id])
-  categoryId  String?   @db.Uuid
-  amount      Int?
   price       Int?
+  description String?
   image       String?
   createdAt   DateTime? @default(now())
   updatedAt   DateTime?
+  amount      Int?
+  categoryId  String?   @db.Uuid
   deletedAt   DateTime? @map("deleted_at")
+  unitId      String?   @db.Uuid
+  category    Category? @relation(fields: [categoryId], references: [id])
+  unit        Unit?     @relation(fields: [unitId], references: [id])
+}
+
+model About {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title      String
+  subtitle   String
+  detail     String
+  image      String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime
+  deleted_at DateTime
+}
+
+model Contact {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  titleName    String
+  address      String
+  facebookName String
+  facebookLink String
+  emailName    String
+  emailLink    String
+  lineName     String
+  linelink     String
+  tel          String
+  maps         String
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime
+  deleted_at   DateTime?
+}
+
+model Footer {
+  id            String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  titleName     String
+  address       String
+  tel           String
+  email         String
+  openTime      String
+  facebook      String
+  line          String
+  maps          String
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime
+  deleted_at    DateTime?
+  image         String
+  titleOpenDate String
+}
+
+model Signup {
+  id          String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  username    String
+  email       String
+  phone       String
+  password    String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime
+  deleted_at  DateTime?
+  Userdetails Userdetails[]
+}
+
+model Userdetails {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  singupId    String?   @db.Uuid
+  name        String?
+  moo         String
+  subdistrict String
+  district    String
+  province    String
+  postcode    String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime
+  deleted_at  DateTime?
+  Signup      Signup?   @relation(fields: [singupId], references: [id])
 }
